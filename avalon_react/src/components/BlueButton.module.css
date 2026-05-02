@@ -1,0 +1,14 @@
+.blue_button {
+    color: white !important;
+    font-weight: 600;
+    background: #0F2A45;
+    padding: 13px;
+    border: 2px solid #0F2A45;
+    transition: all 0.3s ease 0s;
+}
+
+.blue_button:hover {
+    color: #0F2A45 !important;
+    background: none;
+    border: 2px solid #0F2A45;
+}

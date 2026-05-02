@@ -1,0 +1,51 @@
+.blog_section {
+    padding-top: 50px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.blog_section h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.blogCard {
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.blogCard:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.blogCard img {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.blogCard a {
+    color: #0F2A45;
+}
+
+.blogCard h2 {
+    margin-bottom: 20px;
+}
+
+.blogCard p:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.postWrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.postWrapper img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
