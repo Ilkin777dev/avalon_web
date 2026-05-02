@@ -1,0 +1,125 @@
+/* What we offer */
+
+.what_we_offer_wrapper {
+    padding-top: 100px;
+    margin-bottom: 100px;
+}
+
+.what_we_offer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sec_title {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.sec_title h3 {
+    color: #868686;
+    text-decoration: underline;
+}
+
+.what_we_offer_upper {
+    display: flex;
+    margin-bottom: 95px;
+}
+
+.what_we_offer_upper_left {
+    width: 50%;
+}
+
+.what_we_offer_upper_right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cont_text_blue_but h1 {
+    font-size: 2.5vw;
+    margin-bottom: 30px;
+}
+
+.cont_text_blue_but p {
+    margin-bottom: 60px;
+}
+
+.cont_text_blue_but a {
+    color: white;
+    text-decoration: none;
+    background: #0F2A45;
+    padding: 15px 20px 15px 20px;
+}
+
+.adv_card {
+    width: 350px;
+    padding: 20px;
+    border: 2px solid #18181B;
+    transition: all 0.3s ease 0s;
+}
+
+.adv_card:hover {
+    color: white;
+    background: #0F2A45;
+}
+
+.adv_card:hover .card_number h3 {
+    color: white;
+}
+
+.card_number {
+    margin-bottom: 80px;
+}
+
+.card_number h3 {
+    color: #18181B;
+    font-size: 2vw;
+}
+
+.card_title {
+    margin-bottom: 20px;
+}
+
+.card_title h3 {
+    font-size: 1.5vw;
+}
+
+.what_we_offer_lower {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1000px) {
+    .what_we_offer_upper {
+        margin-bottom: 40px;
+        flex-direction: column;
+    }
+
+    .what_we_offer_upper_left {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .what_we_offer_upper_right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .what_we_offer_lower {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .what_we_offer_lower .adv_card:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
+    .card_number h3 {
+        font-size: 5vw;
+    }
+
+    .card_title h3 {
+        font-size: 2.5vw;
+    }
+}

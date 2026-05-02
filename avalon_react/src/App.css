@@ -1,0 +1,44 @@
+.pluses_wrapper {
+    color: white;
+    background: #18181B;
+    padding: 100px 0px 100px 0px;
+    margin-bottom: 100px;
+}
+
+.pluses {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pluses_card {
+    text-align: center;
+}
+
+.pluses_title h2 {
+    font-size: 3vw;
+}
+
+.pluses_text h3 {
+    font-size: 1.8vw;
+}
+
+@media screen and (max-width: 1000px) {
+    .pluses {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pluses_card:not(:last-child) {
+        margin-bottom: 50px;
+    }
+
+    .pluses_title h2 {
+        font-size: 5vw;
+    }
+
+    .pluses_text h3 {
+        font-size: 3vw;
+    }
+}

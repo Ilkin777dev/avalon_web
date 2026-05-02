@@ -1,0 +1,29 @@
+.hero_screen_wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.video_screen video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.hero_screen {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background: #0000007f;
+    position: absolute;
+    top: 0;
+}
+
+.hero_screen_content {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}

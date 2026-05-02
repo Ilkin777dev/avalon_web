@@ -1,0 +1,52 @@
+/* About Us Section */
+
+.about_us_section_wrapper {
+    margin-bottom: 100px;
+}
+
+.about_us_section {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.about_us_section:not(:last-child) {
+    margin-bottom: 100px;
+}
+
+.about_us_left {
+    width: 50%;
+}
+
+.about_us_left img {
+    display: block;
+    width: 90%;
+}
+
+.about_us_right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about_us_right img {
+    width: 90%;
+    height: 90%;
+    display: block;
+}
+
+@media screen and (max-width: 1000px) {
+    .about_us_section {
+        flex-direction: column;
+    }
+
+    .about_us_left {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .about_us_right {
+        width: 100%;
+        justify-content: center;
+    }
+}

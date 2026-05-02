@@ -1,0 +1,39 @@
+.cont_text_trans_but {
+    width: 60%;
+}
+
+.cont_text_trans_but h1 { 
+    font-size: 3vw;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.cont_text_trans_but p {
+    color: #D2D2D2;
+    margin-bottom: 80px;
+}
+
+.cont_text_trans_but a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px 30px 15px 30px;
+    background: #0000007d;
+    border: 2px solid #0F2A45;
+    transition: all 0.3s ease 0s;
+}
+
+.cont_text_trans_but a:hover {
+    background: #0F2A45;
+}
+
+@media screen and (max-width: 1000px) {
+    .cont_text_trans_but {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cont_text_trans_but h1 {
+        font-size: 5vw;
+    }
+}

@@ -1,4 +1,6 @@
+import ContTextTransBut from "./ContTextTransBut"
 import HeroVideo from "../assets/video/bg_vid.webm"
+import "./heroScreen.css"
 
 export default function HeroScreen() {
   return (
@@ -12,24 +14,8 @@ export default function HeroScreen() {
       </div>
 
       <div className="hero_screen">
-        <div className="hero_screen_content">
-          <div className="cont_text_trans_but">
-            <h1>
-              Quick, Reliable, And Investor-Centric Property
-              Management Solutions
-            </h1>
-
-            <p>
-              Avalon Management Group has quickly become synonymous
-              with quality service and dependability in the
-              residential, commercial and retail real estate
-              industry. We offer a comprehensive suite of products
-              tailored for real estate investors, including property
-              management, financing, accounting and much more.
-            </p>
-
-            <a href="#">About Us</a>
-          </div>
+        <div className="hero_screen_content">  
+          <ContTextTransBut title="Quick, Reliable, And Investor-Centric Property Management Solutions" text="Avalon Management Group has quickly become synonymous with quality service and dependability in the residential, commercial and retail real estate industry. We offer a comprehensive suite of products tailored for real estate investors, including property management, financing, accounting and much more." link="#aboutUs" textLink="About Us" />
         </div>
       </div>
     </div>

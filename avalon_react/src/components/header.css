@@ -14,7 +14,7 @@
     display: none;
     align-items: center;
 
-    background: #000000d9;
+    background: white;
 }
 
 .mobile_menu_wrapper.active {
@@ -89,7 +89,7 @@
   position: absolute;
   height: 6px;
   width: 80%;
-  background: #1C1C84;
+  background: #0F2A45;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -145,7 +145,7 @@
         position: fixed;
         z-index: 11;
         width: 100%;
-        background: #00000084;
+        background: white;
     }
 
     .mobile_header_left {
@@ -174,7 +174,6 @@
     .mobile_menu {
         width: 90%;
         margin: 0 auto;
-        border: 1px dotted black;
     }
 
     .mobile_menu ul {
