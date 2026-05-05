@@ -1,7 +1,9 @@
 import styles from './BlueButton.module.css'
 
-export default function BlueButton() {
+export default function BlueButton({linkText, linkDesc}) {
     return(
-        <a href="#" class={styles.blue_button}>Contact Us</a>
+        <a href={linkText} class={styles.blue_button}>
+            {linkDesc}
+        </a>
     )
 }

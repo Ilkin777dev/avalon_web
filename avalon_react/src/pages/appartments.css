@@ -1,0 +1,38 @@
+.appartmentsWrapper {
+    padding-top: 100px;
+    margin-bottom: 100px;
+}
+
+.appartmentsWrapper h1 {
+    color: #0F2A45;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.appartments {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: none;
+}
+
+.appartmentCard {
+    border-radius: 10;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #0F2A45;
+}
+
+.appartmentCard img {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.appartmentCardDesc h3 {
+    color: #0F2A45;
+    margin-bottom: 30px;
+}
+
+.appartmentCardDesc p:not(:last-child) {
+    margin-bottom: 10px;
+}

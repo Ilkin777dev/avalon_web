@@ -15,6 +15,10 @@
     font-family: "Montserrat", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     overflow-x: hidden;
     background: #F1F5F9;
@@ -37,7 +41,7 @@ body {
     top: 0;
     padding: 5px 0px 5px 0px;
     z-index: 10;
-    background: #00000084;
+    background: white;
 }
 
 .header {
@@ -68,23 +72,23 @@ body {
 }
 
 .header_right_side ul li a {
-    color: #D2D2D2;
+    color: #0F2A45;
     text-decoration: none;
 }
 
 .blue_button {
     color: white !important;
     font-weight: 600;
-    background: #1C1C84;
+    background: #0F2A45;
     padding: 13px;
-    border: 2px solid #1C1C84;
+    border: 2px solid #0F2A45;
     transition: all 0.3s ease 0s;
 }
 
 .blue_button:hover {
-    color: #1C1C84;
+    color: #0F2A45 !important;
     background: none;
-    border: 2px solid #1C1C84;
+    border: 2px solid #0F2A45;
 }
 
 /* Hero Screen */
@@ -140,12 +144,12 @@ body {
     text-decoration: none;
     padding: 15px 30px 15px 30px;
     background: #0000007d;
-    /* border: 2px solid #1C1C84; */
+    border: 2px solid #1C1C84;
     transition: all 0.3s ease 0s;
 }
 
 .cont_text_trans_but a:hover {
-    /* background: #1C1C84; */
+    background: #1C1C84;
 }
 
 /* What we offer */
@@ -198,7 +202,7 @@ body {
 .cont_text_blue_but a {
     color: white;
     text-decoration: none;
-    background: #1C1C84;
+    background: #0F2A45;
     padding: 15px 20px 15px 20px;
 }
 
@@ -211,7 +215,7 @@ body {
 
 .adv_card:hover {
     color: white;
-    background: #5990C8;
+    background: #0F2A45;
 }
 
 .adv_card:hover .card_number h3 {
@@ -238,6 +242,38 @@ body {
 .what_we_offer_lower {
     display: flex;
     justify-content: space-between;
+}
+
+/* For Property Owners */
+
+.property_owners_wrapper {
+    background: #18181B;
+    margin-bottom: 100px;
+    padding: 100px 0px 100px 0px;
+    /* border: 1px dotted red; */
+}
+
+.property_owners {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.property_owners h2 {
+    color: white;
+}
+
+.property_owners h2 {
+    margin-bottom: 60px;
+}
+
+.property_owners p {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.property_owners p:not(:last-child) {
+    margin-bottom: 40px;
 }
 
 /* About Us Section */
@@ -275,6 +311,31 @@ body {
     width: 90%;
     height: 90%;
     display: block;
+}
+
+/* Partner Section Wrapper */
+
+.partner_section {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.partner_left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.partner_left img {
+    width: 60%;
+    display: block;
+}
+
+.partner_right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Our Team Section */
@@ -518,7 +579,7 @@ body {
 }
 
 .contact_us_form_wrapper form button:hover {
-    background: #1C1C84;
+    background: #0F2A45;
 }
 
 /* Media Links */
@@ -553,7 +614,7 @@ body {
 }
 
 .media_link_card_right p {
-    color: #1C1C84;
+    color: #0F2A45;
 }
 
 /* Footer */
@@ -595,7 +656,7 @@ body {
 }
 
 .footer_right ul li a {
-    color: #1C1C84;
+    color: #0F2A45;
 }
 
 .footer_right ul li:not(:last-child) {

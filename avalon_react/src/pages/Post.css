@@ -1,0 +1,30 @@
+.postWrapper {
+    padding: 100px 0px 100px 0px;
+    background: #0F2A45;
+    margin-bottom: 100px;
+}
+
+.postContainer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.postImage {
+    display: flex;
+    justify-content: center;
+}
+
+.postImage img {
+    width: 100%;
+    display: block;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.postText {
+    color: white;
+}
+
+.postText h1 {
+    margin-bottom: 20px;
+}

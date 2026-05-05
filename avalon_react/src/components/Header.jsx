@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "../assets/LogoNew.svg";
 import "../components/header.css";
 import BlueButton from "./BlueButton";
+import { HashLink } from "react-router-hash-link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,19 +13,23 @@ export default function Header() {
         <div className="header">
 
           <div className="header_left_side">
-            <a href="#">
+            <a href="/">
               <img src={Logo} alt="" />
             </a>
           </div>
 
           <div className="header_right_side">
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Appartments</a></li>
-              <li><a href="#">Projects</a></li>
+              <li>
+                <HashLink smooth to="/#aboutUs">
+                  About Us
+                </HashLink>
+              </li>
+              <li><a href="/appartments">Appartments</a></li>
+              <li><a href="/projects/">Projects</a></li>
               <li><a href="/blog/">Blog</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><BlueButton /></li>
+              <li><a href="/careers/">Careers</a></li>
+              <li><BlueButton linkText="#contactUs" linkDesc="Contact Us" /></li>
             </ul>
           </div>
 
@@ -65,7 +70,7 @@ export default function Header() {
             <li><a href="#">Projects</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="#">Careers</a></li>
-            <li><BlueButton /></li>
+            <li><BlueButton linkText="/contact/" linkDesc="Contact Us" /></li>
           </ul>
 
         </div>

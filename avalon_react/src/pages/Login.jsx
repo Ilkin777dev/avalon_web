@@ -2,6 +2,8 @@ import { useState } from "react"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase"
 import { useNavigate } from "react-router-dom"
+import "./Login.css"
+import Logo from "../assets/LogoNew.svg"
 
 export default function Login() {
   const [email, setEmail] = useState("")
@@ -22,8 +24,12 @@ export default function Login() {
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Login</h1>
+    <div className="loginWrapper">
+      <div className="loginContainer">
+      <img src={Logo} alt="Avalon Development Logo" />
+
+      <br /><br />
+      <h1>LOGIN</h1>
 
       <input
         type="email"
@@ -46,6 +52,7 @@ export default function Login() {
       <button onClick={handleLogin}>
         Login
       </button>
+      </div>
     </div>
   )
 }

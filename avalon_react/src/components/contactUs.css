@@ -1,0 +1,107 @@
+.contact_us_section {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.contact_us_map iframe {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    outline: none;
+    border: none;
+}
+
+.contact_us_form_wrapper {
+    background: #18181B;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.contact_us_form_wrapper form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact_us_form_wrapper form h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.contact_us_form_wrapper form p {
+    color: white;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact_us_form_wrapper form input {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    background: #d2d2d282;
+    outline: none;
+    padding-left: 15px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    border: 2px solid white;
+}
+
+.contact_us_form_wrapper form input::placeholder {
+    color: white;
+}
+
+.contact_us_form_wrapper form input:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.contact_us_form_wrapper form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #d2d2d282;
+    color: white;
+    border: 2px solid white;
+    outline: none;
+    margin-bottom: 50px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.contact_us_form_wrapper form textarea::placeholder {
+    color: white;
+}
+
+.contact_us_form_wrapper form button {
+    width: 50%;
+    height: 50px;
+    font-weight: 700;
+    background: none;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat", sans-serif;
+}
+
+.contact_us_form_wrapper form button:hover {
+    background: #0F2A45;
+}
+
+@media screen and (max-width: 1000px) {
+    .contact_us_form_wrapper {
+        width: 100%;
+        position: relative;
+    }
+
+    .contact_us_map iframe {
+        height: 50vh;
+    }
+}

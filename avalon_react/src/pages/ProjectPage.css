@@ -1,0 +1,23 @@
+.projectWrapper {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding-top: 100px;
+}
+
+.projectWrapper img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.projectWrapper h1 {
+    color: #0F2A45;
+    margin-bottom: 40px;
+}
+
+.projectWrapper p {
+    font-size: 16px;
+    line-height: 1.6;
+}

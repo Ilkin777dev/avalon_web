@@ -1,0 +1,56 @@
+.projects_section {
+    padding-top: 50px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.projects_section h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* GRID */
+.projects_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.projectCard {
+    padding: 15px;
+    border: 1px solid #0F2A45;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.projectCard img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.projectCard a {
+    color: #0F2A45;
+    text-decoration: none;
+}
+
+.projectCard h2 {
+    margin-bottom: 10px;
+}
+
+/* обрезка текста */
+.projectCard p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

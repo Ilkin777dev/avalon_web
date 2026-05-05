@@ -1,6 +1,7 @@
 import "./aboutUs.css"
 import aboutUsImage from "../assets/about_us_img.png"
 import avalonManagementImage from "../assets/avalon_management.png"
+import inKitchenImage from "../assets/inkitchen_logo.png"
 
 export default function AboutUs() {
     return (
@@ -12,7 +13,7 @@ export default function AboutUs() {
             </div>
 
             {/* SECTION 1 */}
-            <div className="about_us_section">
+            <div className="about_us_section" id="aboutUs">
                 <div className="about_us_left">
                     <img src={aboutUsImage} alt="About Us" />
                 </div>
@@ -35,7 +36,7 @@ export default function AboutUs() {
                                 clients.
                             </p>
 
-                            <a href="#">View More</a>
+                            {/* <a href="#">View More</a> */}
                         </div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@ export default function AboutUs() {
                                 resident.
                             </p>
 
-                            <a href="#">View More</a>
+                            {/* <a href="#">View More</a> */}
                         </div>
                     </div>
                 </div>
@@ -80,7 +81,7 @@ export default function AboutUs() {
             {/* SECTION 3 */}
             <div className="about_us_section">
                 <div className="about_us_left">
-                    <img src={aboutUsImage} alt="About Us" />
+                    <img src={inKitchenImage} alt="About Us" />
                 </div>
 
                 <div className="about_us_right">
@@ -101,7 +102,7 @@ export default function AboutUs() {
                                 clients.
                             </p>
 
-                            <a href="#">View More</a>
+                            {/* <a href="#">View More</a> */}
                         </div>
                     </div>
                 </div>

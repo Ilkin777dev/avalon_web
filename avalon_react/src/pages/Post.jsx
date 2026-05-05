@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 import Header from "../components/Header"
-import "./blog.css"
+import ContactUs from "../components/ContactUs"
+import Footer from "../components/Footer"
+import "./Post.css"
 
 export default function Post() {
   const { id } = useParams()
@@ -30,26 +32,29 @@ export default function Post() {
   return (
     <div>
 
-    <Header></Header>
+      <Header></Header>
 
-    <div className="postWrapper">
-      {post.imageUrl && (
-      <img
-        src={post.imageUrl}
-        alt={post.title}
-        style={{
-          width: "100%",
-          maxWidth: "600px",
-          borderRadius: "12px",
-          marginBottom: "20px"
-        }}
-      />
-    )}
+      <div className="postWrapper">
+        <div className="postContainer">
+          <div className="postImage">
+            {post.imageUrl && (
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+              />
+            )}
+          </div>
 
-    <h1>{post.title}</h1>
-    <p>{post.content}</p>
+          <div className="postText">
+            <h1>{post.title}</h1>
+            <p>{post.content}</p>
+          </div>
+        </div>
+      </div>
+
+      <ContactUs />
+      <Footer />
+
     </div>
-
-  </div>
   )
 }

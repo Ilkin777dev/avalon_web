@@ -2,6 +2,7 @@
     padding-top: 50px;
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 .blog_section h1 {
@@ -9,43 +10,53 @@
     margin-bottom: 50px;
 }
 
-.blogCard {
-    width: 60%;
-    margin: 0 auto;
-    padding: 15px;
-    border: 2px solid black;
+/* 🔥 GRID */
+.blog_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-.blogCard:not(:last-child) {
-    margin-bottom: 50px;
+/* 🔥 CARD */
+.blogCard {
+    padding: 15px;
+    border: 2px solid black;
+    background: white;
+    transition: 0.3s;
+}
+
+.blogCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .blogCard img {
     width: 100%;
-    display: block;
-    margin-bottom: 20px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
 .blogCard a {
     color: #0F2A45;
+    text-decoration: none;
 }
 
 .blogCard h2 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.blogCard p:not(:last-child) {
-    margin-bottom: 30px;
+/* ✂️ текст обрезка */
+.blogCard p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
-.postWrapper {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 100px;
-}
-
-.postWrapper img {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
+/* slug чуть меньше */
+.slug {
+    font-size: 12px;
+    color: gray;
 }

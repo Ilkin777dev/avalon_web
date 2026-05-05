@@ -1,0 +1,78 @@
+.careersWrapper {
+  width: 90%;
+  margin: 0 auto;
+  background: none;
+  padding-top: 50px;
+  margin-bottom: 100px;
+}
+
+.careersWrapper h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* 🔥 GRID */
+.jobsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* карточка */
+.jobCard {
+  border: 1px solid #0F2A45;
+  padding: 20px;
+  margin-bottom: 100px;
+  transition: 0.3s;
+}
+
+.jobCard:hover {
+  transform: translateY(-5px);
+}
+
+.jobCard h2 {
+    color: #0F2A45;
+    margin-bottom: 15px;
+}
+
+.jobCard p {
+  margin-bottom: 20px;
+}
+
+.jobCard a {
+  color: #0F2A45;
+  font-weight: bold;
+}
+
+/* форма */
+.applySection {
+  /* margin-top: 60px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.applySection h2 {
+    color: #0F2A45;
+    margin-bottom: 50px;
+}
+
+.applySection form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+}
+
+.applySection input,
+.applySection button {
+  padding: 12px;
+  border: 1px solid #0F2A45;
+}
+
+.applySection button {
+  cursor: pointer;
+  color: white;
+  background: #0F2A45;
+}
