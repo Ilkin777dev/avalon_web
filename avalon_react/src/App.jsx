@@ -10,6 +10,8 @@ import Careers from './pages/Careers'
 import Projects from './pages/Projects'
 import ProjectPage from "./pages/ProjectPage";
 import Appartments from "./pages/Appartments"
+import Brokerage from "./pages/Brokerage"
+import Sell from "./pages/Sell"
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path="/careers" element={<Careers />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/project/:id" element={<ProjectPage />} />
+      <Route path="/brokerage" element={<Brokerage />} />
+      <Route path="/sell" element={<Sell />} />
     </Routes>
   )
 }

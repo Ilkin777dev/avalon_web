@@ -1,0 +1,87 @@
+.sell_wrapper {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+/* HERO */
+.sell_hero {
+  height: 60vh;
+
+  background-image: url("https://assets.prevu.com/blogs/images/reasons-to-move-to-jersey-city/4e4cc53be7e5166a8c789b43fde47d60?ixlib=rb-4.0.3&w=1200&lossless=true&auto=format%20compress&fit=fill&fill=solid&s=dd7cc05a1f3255273b851c41923e4463");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+
+  position: relative;
+
+  margin-bottom: 100px;
+}
+
+.sell_hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.sell_hero h1,
+.sell_hero p {
+  position: relative;
+  z-index: 1;
+}
+
+.sell_hero h1 {
+  font-size: 3vw;
+  margin-bottom: 20px;
+}
+
+.sell_hero p {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 1.2vw;
+}
+
+/* FORM */
+.sell_form_wrapper {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.sell_form_wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sell_form_wrapper h2 {
+    color: #0F2A45;
+    margin-bottom: 30px;
+}
+
+.sell_form_wrapper input {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+}
+
+.sell_form_wrapper button {
+  padding: 15px;
+  background: #0F2A45;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

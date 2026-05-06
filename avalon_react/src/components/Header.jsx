@@ -19,13 +19,21 @@ export default function Header() {
           </div>
 
           <div className="header_right_side">
-            <ul>
+            <ul className="header_right_side_ul">
               <li>
                 <HashLink smooth to="/#aboutUs">
                   About Us
                 </HashLink>
               </li>
-              <li><a href="/appartments">Appartments</a></li>
+              <li className="dropdown">
+                <a href="#">Services</a>
+
+                <ul className="dropdownMenu">
+                  <li><a href="/brokerage">Brokerage</a></li>
+                  <li><a href="/sell">Sell Your Property</a></li>
+                  <li><a href="/appartments">Rentals</a></li>
+                </ul>
+              </li>
               <li><a href="/projects/">Projects</a></li>
               <li><a href="/blog/">Press</a></li>
               <li><a href="/careers/">Careers</a></li>
@@ -40,7 +48,7 @@ export default function Header() {
       <div className="mobile_header_wrapper">
 
         <div className="mobile_header_left">
-          <a href="#">
+          <a href="/">
             <img src={Logo} alt="" />
           </a>
         </div>
@@ -65,11 +73,15 @@ export default function Header() {
         <div className="mobile_menu">
 
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Appartments</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="#"><HashLink smooth to="/#aboutUs">
+              About Us
+            </HashLink></a></li>
+            <li><a href="/brokerage">Brokerage</a></li>
+            <li><a href="/sell">Sell Your Property</a></li>
+            <li><a href="/appartments">Rentals</a></li>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/blog/">Press</a></li>
+            <li><a href="/careers/">Careers</a></li>
             <li><BlueButton linkText="/contact/" linkDesc="Contact Us" /></li>
           </ul>
 
