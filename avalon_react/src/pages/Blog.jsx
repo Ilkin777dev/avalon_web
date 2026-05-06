@@ -39,7 +39,7 @@ export default function Blog() {
       <Header />
 
       <div className="blog_section">
-        <h1>Blog</h1>
+        <h1>Press</h1>
 
         <div className="blog_grid">
           {posts.map((post) => (

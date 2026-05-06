@@ -54,7 +54,7 @@ export default function ContactUs() {
         <div className="contact_us_form_wrapper">
           <form onSubmit={handleSubmit}>
 
-            <h2>Countact Us</h2>
+            <h2>Contact Us</h2>
             <p>Questions? Comments? We’re here to help. Send us a message and we’ll be in touch shortly.</p>
 
             <input

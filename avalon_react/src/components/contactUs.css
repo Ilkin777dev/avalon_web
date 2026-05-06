@@ -61,7 +61,7 @@
 }
 
 .contact_us_form_wrapper form input:not(:last-child) {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .contact_us_form_wrapper form textarea {

@@ -27,7 +27,7 @@ export default function Header() {
               </li>
               <li><a href="/appartments">Appartments</a></li>
               <li><a href="/projects/">Projects</a></li>
-              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/blog/">Press</a></li>
               <li><a href="/careers/">Careers</a></li>
               <li><BlueButton linkText="#contactUs" linkDesc="Contact Us" /></li>
             </ul>

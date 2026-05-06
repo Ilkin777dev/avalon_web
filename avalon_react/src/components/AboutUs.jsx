@@ -68,7 +68,7 @@ export default function AboutUs() {
                                 resident.
                             </p>
 
-                            {/* <a href="#">View More</a> */}
+                            <a href="https://avalonmgmt.managebuilding.com/Resident/portal/login" target="_blank">View More</a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ export default function AboutUs() {
                                 clients.
                             </p>
 
-                            {/* <a href="#">View More</a> */}
+                            <a href="https://infocuskitchenbath.com/" target="_blank">View More</a>
                         </div>
                     </div>
                 </div>
