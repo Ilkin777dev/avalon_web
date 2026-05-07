@@ -20,14 +20,14 @@ export default function MediaLinks() {
         </a>
 
         {/* PHONE */}
-        <a href="tel:+123456789">
+        <a href="tel:+16098077777">
           <div className="media_link_card">
             <div className="media_link_card_left">
               <FaPhone size={24} color="#0F2A45" />
             </div>
             <div className="media_link_card_right">
               <p>Phone:</p>
-              <p><b>+123 456 789</b></p>
+              <p><b>+1-609-807-7777</b></p>
             </div>
           </div>
         </a>

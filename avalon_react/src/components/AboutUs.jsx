@@ -66,6 +66,8 @@ export default function AboutUs() {
                                 Avalon Management is built on responsiveness, accessibility, and a commitment to resolving
                                 issues with clarity and speed, creating a streamlined and reliable experience for every
                                 resident.
+                                <br /><br />
+                                <p>You can contact us via: <br /><br /> <a href="tel:+16097277777">+1609-727-7777</a></p>
                             </p>
 
                             <a href="https://avalonmgmt.managebuilding.com/Resident/portal/login" target="_blank">View More</a>
