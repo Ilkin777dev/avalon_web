@@ -6,7 +6,7 @@ export default function WhatWeOffer() {
             <div class="sec_title_wrapper">
                 <div class="sec_title">
                     <h3>
-                        WHAT WE OFFER
+                        WHAT WE DO
                     </h3>
                 </div>
             </div>

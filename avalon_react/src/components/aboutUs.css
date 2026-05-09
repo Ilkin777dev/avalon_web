@@ -27,12 +27,16 @@
     width: 50%;
     display: flex;
     justify-content: flex-end;
+    /* border: 1px solid red; */
 }
 
 .about_us_right img {
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: min-content;
     display: block;
+    padding-top: 20px;
+    padding-left: 20px;
+    border: 2px solid #0F2A45;
 }
 
 @media screen and (max-width: 1000px) {

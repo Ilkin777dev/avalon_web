@@ -13,10 +13,7 @@ export default function Projects() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const q = query(
-        collection(db, "posts"),
-        orderBy("createdAt", "desc")
-      );
+      const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
 
       const snapshot = await getDocs(q);
 
@@ -26,7 +23,7 @@ export default function Projects() {
       }));
 
       // 🔥 фильтр только проекты
-      const filtered = data.filter(item => item.type === "project");
+      const filtered = data.filter((item) => item.type === "project");
 
       setProjects(filtered);
     };
@@ -46,11 +43,25 @@ export default function Projects() {
             <div className="projectCard" key={project.id}>
               <img src={project.imageUrl} alt="" />
 
-              <Link to={`/project/${project.id}`}>
-                <h2>{project.title}</h2>
-              </Link>
+              <div className="project_content">
+                <Link to={`/project/${project.id}`}>
+                  <h2>{project.title}</h2>
+                </Link>
 
-              <p>{project.content}</p>
+                <div
+                  className="project_text"
+                  dangerouslySetInnerHTML={{
+                    __html: project.content,
+                  }}
+                ></div>
+
+                <Link
+                  to={`/project/${project.id}`}
+                  className="project_more_btn"
+                >
+                  View Project
+                </Link>
+              </div>
             </div>
           ))}
         </div>
