@@ -45,7 +45,7 @@
 
 .header_wrapper {
     width: 100%;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0px 0px 0px;
     z-index: 10;
     position: relative;
     /* background: #00000084; */
@@ -55,14 +55,32 @@
     width: 90%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding-bottom: 5px;
     border-bottom: 1px solid #0F2A45;
+}
+
+.header_left_side {
+    /* border: 1px dotted red; */
 }
 
 .header_left_side a img {
     width: 70%;
     display: block;
+}
+
+.header_right_side {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px dotted red; */
+}
+
+.right_ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    /* border: 2px solid red; */
 }
 
 .header_right_side_ul {

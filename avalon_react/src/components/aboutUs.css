@@ -32,11 +32,7 @@
 
 .about_us_right img {
     width: 80%;
-    height: min-content;
     display: block;
-    padding-top: 20px;
-    padding-left: 20px;
-    border: 2px solid #0F2A45;
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,7 +1,7 @@
 import "./aboutUs.css"
 import aboutUsImage from "../assets/about_us_img.jpg"
-import avalonManagementImage from "../assets/avalon_management_v2.png"
-import inKitchenImage from "../assets/infocus_bg.jpg"
+import avalonManagementImage from "../assets/avalon_management_group.png"
+import inKitchenImage from "../assets/infocus_main_page.png"
 
 export default function AboutUs() {
     return (
@@ -90,18 +90,11 @@ export default function AboutUs() {
                     <div className="cont_text_blue_but_wrapper">
                         <div className="cont_text_blue_but">
                             <h1>
-                                Empowering Real Estate Investors with Expert Financing Solutions
+                                Transforming Homes, Elevating Living
                             </h1>
 
                             <p>
-                                Founded in 2017, Avalon Management Group stands as a beacon of reliability and
-                                excellence in the residential real estate financing sector. We are a privately owned
-                                company dedicated to delivering fast, high-quality lending services to real estate
-                                investors across all 50 states.
-                                <br /><br />
-                                Our comprehensive suite of products includes Ground-Up Construction, Multifamily Bridge,
-                                Fix & Flip, and 30-year Rental Loans, all designed to meet the diverse needs of our
-                                clients.
+                                Infocus Kitchen & Bath is your premier partner for home transformations in New Jersey. Whether you are looking for a kitchen refresh, a bathroom upgrade, or custom storage solutions, we combine premium products from trusted brands with seamless, end-to-end service. From your first consultation to the final installation, our mission is to bring professional design, expert craftsmanship, and exceptional value to your home.
                             </p>
 
                             <a href="https://infocuskitchenbath.com/" target="_blank">View More</a>
