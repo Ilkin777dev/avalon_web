@@ -17,50 +17,80 @@ export default function ProjectPage() {
 
   useEffect(() => {
     const fetchProject = async () => {
-      const docRef = doc(db, "posts", id);
+      try {
+        const docRef = doc(db, "posts", id);
 
-      const snapshot = await getDoc(docRef);
+        const snapshot = await getDoc(docRef);
 
-      if (snapshot.exists()) {
-        setProject(snapshot.data());
+        if (snapshot.exists()) {
+          setProject(snapshot.data());
+        }
+      } catch (error) {
+        console.log(error);
       }
     };
 
     fetchProject();
   }, [id]);
 
-  if (!project) return <p>Loading...</p>;
+  if (!project) {
+    return (
+      <div>
+        <Header />
+
+        <div className="projectWrapper">
+          <h1>Loading...</h1>
+        </div>
+
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div>
       <Header />
 
       <div className="projectWrapper">
-        <h1>{project.title}</h1>
+        {/* TITLE */}
+        <h1 className="projectTitle">
+          {project.title}
+        </h1>
 
-        {/* ГЛАВНАЯ ФОТКА */}
+        {/* PREVIEW IMAGE */}
         <img
           className="mainProjectImage"
           src={project.imageUrl}
-          alt=""
+          alt={project.title}
         />
 
-        {/* HTML CONTENT */}
+        {/* CONTENT */}
         <div
           className="projectContent"
           dangerouslySetInnerHTML={{
             __html: project.content,
           }}
-        ></div>
+        />
 
-        {/* ГАЛЕРЕЯ */}
-        {project.images && (
-          <div className="projectGallery">
-            {project.images.map((image, index) => (
-              <img key={index} src={image} alt="" />
-            ))}
-          </div>
-        )}
+        {/* GALLERY */}
+        {project.images &&
+          project.images.length > 0 && (
+            <div className="projectGallery">
+              {project.images.map(
+                (image, index) => (
+                  <div
+                    className="galleryItem"
+                    key={index}
+                  >
+                    <img
+                      src={image}
+                      alt={`project-${index}`}
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          )}
       </div>
 
       <ContactUs />
