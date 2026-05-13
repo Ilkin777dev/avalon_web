@@ -67,7 +67,7 @@ export default function AboutUs() {
                                 issues with clarity and speed, creating a streamlined and reliable experience for every
                                 resident.
                                 <br /><br />
-                                <p>You can contact us via: <br /><br /> <a href="tel:+16097277777">+1609-727-7777</a></p>
+                                <p>You can contact us via: <br /><br /> <a href="tel:+16098077777">+1-609-807-7777</a></p>
                             </p>
 
                             <a href="https://avalonmgmt.managebuilding.com/Resident/portal/login" target="_blank">View More</a>

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { motion } from "framer-motion";
 
 import "./ProjectPage.css";
 
@@ -78,15 +79,23 @@ export default function ProjectPage() {
             <div className="projectGallery">
               {project.images.map(
                 (image, index) => (
-                  <div
-                    className="galleryItem"
-                    key={index}
-                  >
+                  <motion.div
+  className="galleryItem"
+  key={index}
+  initial={{ opacity: 0, y: 80 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.2 }}
+  transition={{
+    duration: 0.8,
+    ease: "easeOut",
+    delay: index * 0.1,
+  }}
+>
                     <img
                       src={image}
                       alt={`project-${index}`}
                     />
-                  </div>
+                  </motion.div>
                 )
               )}
             </div>

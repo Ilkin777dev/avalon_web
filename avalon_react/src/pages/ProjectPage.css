@@ -50,3 +50,16 @@
 .projectWrapper img {
     max-width: 100%;
 }
+
+.galleryItem {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.galleryItem img {
+    transition: transform 0.6s ease;
+}
+
+.galleryItem:hover img {
+    transform: scale(1.03);
+}
