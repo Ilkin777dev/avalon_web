@@ -43,7 +43,7 @@ export default function AboutUs() {
             </div>
 
             {/* SECTION 2 */}
-            <div className="about_us_section">
+            <div className="about_us_section" id="managementAvalon">
                 <div className="about_us_left">
                     <div className="cont_text_blue_but_wrapper">
                         <div className="cont_text_blue_but">

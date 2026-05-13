@@ -37,6 +37,9 @@ export default function Header() {
               <li><a href="/projects/">Portfolio</a></li>
               <li><a href="/blog/">Press</a></li>
               <li><a href="/careers/">Careers</a></li>
+              <li><HashLink smooth to="/#managementAvalon">
+                  Management
+                </HashLink></li>
               {/* <li><BlueButton linkText="#contactUs" linkDesc="Contact Us" /></li> */}
             </ul>
             <ul className="right_ul">
