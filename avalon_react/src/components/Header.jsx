@@ -20,6 +20,7 @@ export default function Header() {
 
           <div className="header_right_side">
             <ul className="header_right_side_ul">
+              <li><a href="/">Home</a></li>
               <li>
                 <HashLink smooth to="/#aboutUs">
                   About Us
@@ -81,13 +82,14 @@ export default function Header() {
         <div className="mobile_menu">
 
           <ul>
+            <li><a href="/">Home</a></li>
             <li><a href="#"><HashLink smooth to="/#aboutUs">
               About Us
             </HashLink></a></li>
             <li><a href="/brokerage">Brokerage</a></li>
             <li><a href="/sell">Sell Your Property</a></li>
             <li><a href="/appartments">Rentals</a></li>
-            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/projects/">Portfolio</a></li>
             <li><a href="/blog/">Press</a></li>
             <li><a href="/careers/">Careers</a></li>
             <li><BlueButton linkText="/contact/" linkDesc="Contact Us" /></li>

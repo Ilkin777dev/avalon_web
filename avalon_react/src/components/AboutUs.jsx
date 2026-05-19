@@ -1,5 +1,5 @@
 import "./aboutUs.css"
-import aboutUsImage from "../assets/about_us_img.jpg"
+import aboutUsImage from "../assets/about_us_img.png"
 import avalonManagementImage from "../assets/avalon_management_group.png"
 import inKitchenImage from "../assets/infocus_main_page.png"
 
@@ -22,18 +22,17 @@ export default function AboutUs() {
                     <div className="cont_text_blue_but_wrapper">
                         <div className="cont_text_blue_but">
                             <h1>
-                                Empowering Real Estate Investors with Expert Financing Solutions
+                                From Acquisition to Expansion, We Finance Growth
                             </h1>
 
                             <p>
-                                Founded in 2017, Avalon Management Group stands as a beacon of reliability and
-                                excellence in the residential real estate financing sector. We are a privately owned
-                                company dedicated to delivering fast, high-quality lending services to real estate
-                                investors across all 50 states.
+                                Principal Partnership, established in 2015, was founded with a clear vision: to create a lending platform built around the real needs of real estate investors. What began as a focused partnership has evolved into a trusted financing group committed to helping investors grow, build, and scale with confidence.
                                 <br /><br />
-                                Our comprehensive suite of products includes Ground-Up Construction, Multifamily Bridge,
-                                Fix & Flip, and 30-year Rental Loans, all designed to meet the diverse needs of our
-                                clients.
+                                Today, Avalon Management Group proudly provides strategic residential real estate financing solutions nationwide, combining speed, reliability, and hands-on industry experience. As a privately owned company, we understand the challenges investors face because our foundation was built within the investment world itself.
+                                <br /><br />
+                                We specialize in delivering tailored financing solutions including Ground Up Construction, Multifamily Bridge Loans, Fix & Flip Financing, and 30 Year Rental Loans, all designed to help investors move quickly, seize opportunities, and maximize long term growth.
+                                <br /><br />
+                                Our mission is simple: empower investors with dependable capital, strong relationships, and a lending experience built on trust, transparency, and execution.
                             </p>
 
                             {/* <a href="#">View More</a> */}
@@ -52,20 +51,13 @@ export default function AboutUs() {
                             </h1>
 
                             <p>
-                                Avalon Management remains an integral part of the Avalon ecosystem, providing a seamless
-                                connection between residents and their everyday living experience.
+                                Avalon Management remains an essential part of the Avalon ecosystem, providing residents with a reliable and efficient management experience built on accessibility, responsiveness, and professionalism.
                                 <br /><br />
-                                Through our dedicated tenant portal, residents have full access to their accounts anytime
-                                and from anywhere. Rent payments can be completed securely online using a range of accepted
-                                payment methods, with the option to set up automatic payments for added convenience.
+                                Through our dedicated resident portal, tenants have secure access to their accounts at all times, including the ability to make online payments, enroll in automatic payments, and manage account information with ease.
                                 <br /><br />
-                                The platform is designed to simplify communication and ensure efficiency. Maintenance
-                                requests and service inquiries can be submitted directly through the portal, where each
-                                request is tracked and addressed promptly by our team.
+                                The platform also streamlines communication between residents and management. Maintenance requests and service inquiries can be submitted directly through the portal, allowing our team to respond quickly and efficiently while ensuring every request is properly tracked and addressed.
                                 <br /><br />
-                                Avalon Management is built on responsiveness, accessibility, and a commitment to resolving
-                                issues with clarity and speed, creating a streamlined and reliable experience for every
-                                resident.
+                                At Avalon Management, we are committed to delivering dependable service, clear communication, and a management experience designed to support the long term quality and stability of the communities we serve.
                                 <br /><br />
                                 <p>You can contact us via: <br /><br /> <a href="tel:+16098077777">+1-609-807-7777</a></p>
                             </p>

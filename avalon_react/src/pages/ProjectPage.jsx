@@ -53,17 +53,17 @@ export default function ProjectPage() {
       <Header />
 
       <div className="projectWrapper">
-        {/* TITLE */}
-        <h1 className="projectTitle">
-          {project.title}
-        </h1>
-
         {/* PREVIEW IMAGE */}
         <img
           className="mainProjectImage"
           src={project.imageUrl}
           alt={project.title}
         />
+
+        {/* TITLE */}
+        <h1 className="projectTitle">
+          {project.title}
+        </h1>
 
         {/* CONTENT */}
         <div
