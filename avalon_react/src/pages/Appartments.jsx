@@ -32,7 +32,7 @@ export default function Appartments() {
     <div>
       <Header />
       <div className="appartmentsWrapper">
-        <h1>Apartments</h1>
+        <h1>For rent</h1>
         <div className="appartments">
           <div style={{
             display: "grid",
