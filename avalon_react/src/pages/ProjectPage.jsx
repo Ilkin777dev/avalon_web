@@ -53,17 +53,17 @@ export default function ProjectPage() {
       <Header />
 
       <div className="projectWrapper">
-        {/* TITLE */}
-        <h1 className="projectTitle">
-          {project.title}
-        </h1>
-
         {/* PREVIEW IMAGE */}
         <img
           className="mainProjectImage"
           src={project.imageUrl}
           alt={project.title}
         />
+
+        {/* TITLE */}
+        <h1 className="projectTitle">
+          {project.title}
+        </h1>
 
         {/* CONTENT */}
         <div
@@ -74,23 +74,24 @@ export default function ProjectPage() {
         />
 
         {/* GALLERY */}
-        {project.images &&
+        <div className="projectGalleryWrapper">
+          {project.images &&
           project.images.length > 0 && (
             <div className="projectGallery">
               {project.images.map(
                 (image, index) => (
                   <motion.div
-  className="galleryItem"
-  key={index}
-  initial={{ opacity: 0, y: 80 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false, amount: 0.2 }}
-  transition={{
-    duration: 0.8,
-    ease: "easeOut",
-    delay: index * 0.1,
-  }}
->
+                    className="galleryItem"
+                    key={index}
+                    initial={{ opacity: 0, y: 80 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{
+                      duration: 0.8,
+                      ease: "easeOut",
+                      delay: index * 0.1,
+                    }}
+                  >
                     <img
                       src={image}
                       alt={`project-${index}`}
@@ -100,6 +101,7 @@ export default function ProjectPage() {
               )}
             </div>
           )}
+        </div>
       </div>
 
       <ContactUs />

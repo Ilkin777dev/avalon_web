@@ -51,7 +51,7 @@ export default function Home() {
           <div className="pluses">
             <div className="pluses_card">
               <div className="pluses_title">
-                <h2>1.5 m²</h2>
+                <h2>2.2 m²</h2>
               </div>
               <div className="pluses_text">
                 <h3>
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
             <div className="pluses_card">
               <div className="pluses_title">
-                <h2>1000+</h2>
+                <h2>1000</h2>
               </div>
               <div className="pluses_text">
                 <h3>UNITS</h3>
@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="pluses_card">
               <div className="pluses_title">
-                <h2>100+</h2>
+                <h2>500</h2>
               </div>
               <div className="pluses_text">
                 <h3>SATISFIED CLIENTS</h3>
@@ -79,7 +79,7 @@ export default function Home() {
         </div>
 
         <AboutUs />
-        <OurTeam />
+        {/* <OurTeam /> */}
 
         {/* 🔥 NEW: Apartments Section */}
         <div className="mainAppartWrapper">

@@ -14,10 +14,13 @@
     height: 600px;
     object-fit: cover;
     margin-bottom: 40px;
-    border-radius: 10px;
 }
 
 /* CONTENT */
+.projectTitle {
+    margin-bottom: 40px;
+}
+
 .projectContent {
     margin-bottom: 60px;
     line-height: 1.8;
@@ -26,13 +29,15 @@
 
 /* ===== GALLERY GRID (ВАЖНО) ===== */
 
-.projectGallery {
-    margin-top: 50px;
+.projectGalleryWrapper {
+    padding: 20px;
+    background: #0F2A45;
+}
 
+.projectGallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
-
     width: 100%;
 }
 
@@ -42,7 +47,7 @@
     height: 300px;
     object-fit: cover;
 
-    border-radius: 10px;
+    /* border-radius: 10px; */
     display: block;
 }
 
@@ -53,7 +58,7 @@
 
 .galleryItem {
     overflow: hidden;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .galleryItem img {
