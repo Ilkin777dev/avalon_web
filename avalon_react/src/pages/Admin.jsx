@@ -4,6 +4,7 @@ import {
   collection,
   getDocs,
   deleteDoc,
+  updateDoc,
   doc,
 } from "firebase/firestore";
 
@@ -13,9 +14,7 @@ import { useNavigate } from "react-router-dom";
 import imageCompression from "browser-image-compression";
 
 import { db, auth } from "../firebase";
-
 import Logo from "../assets/LogoNew.svg";
-
 import "./Admin.css";
 
 export default function Admin() {
@@ -24,12 +23,16 @@ export default function Admin() {
   const [posts, setPosts] = useState([]);
 
   const [mode, setMode] = useState("blog");
+  const [editingId, setEditingId] = useState(null);
 
-  // PROJECTS
+  // BLOG
+  const [blogImage, setBlogImage] = useState(null);
+
+  // PROJECT
   const [previewImage, setPreviewImage] = useState(null);
   const [images, setImages] = useState([]);
 
-  // APARTMENTS
+  // APARTMENT
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
   const [rooms, setRooms] = useState("");
@@ -40,7 +43,6 @@ export default function Admin() {
 
   const navigate = useNavigate();
 
-  // FETCH POSTS
   const fetchPosts = async () => {
     const snapshot = await getDocs(collection(db, "posts"));
 
@@ -56,19 +58,11 @@ export default function Admin() {
     fetchPosts();
   }, []);
 
-  // VALIDATE
   const validateFile = (file) => {
-    const allowedTypes = [
-      "image/jpeg",
-      "image/png",
-      "image/jpg",
-      "image/webp",
-    ];
-
-    return allowedTypes.includes(file.type);
+    const allowed = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+    return allowed.includes(file.type);
   };
 
-  // CLOUDINARY UPLOAD
   const uploadImage = async (file) => {
     const compressed = await imageCompression(file, {
       maxSizeMB: 1,
@@ -77,11 +71,10 @@ export default function Admin() {
     });
 
     const formData = new FormData();
-
     formData.append("file", compressed);
     formData.append("upload_preset", "blog_upload");
 
-    const response = await fetch(
+    const res = await fetch(
       "https://api.cloudinary.com/v1_1/dpdlzlhke/image/upload",
       {
         method: "POST",
@@ -89,122 +82,110 @@ export default function Admin() {
       }
     );
 
-    const data = await response.json();
-
+    const data = await res.json();
     return data.secure_url;
   };
 
-  // CREATE ITEM
   const createItem = async () => {
-    if (!title || !content) {
-      alert("Fill all fields");
+    // ONLY TITLE REQUIRED
+    if (!title) {
+      alert("Title required");
       return;
     }
 
-    // PROJECT VALIDATION
-    if (mode === "project") {
-      if (!previewImage || images.length === 0) {
-        alert("Upload preview & gallery");
-        return;
-      }
-    }
-
-    // APARTMENT VALIDATION
-    if (mode === "apartment") {
-      if (
-        !price ||
-        !location ||
-        !rooms ||
-        !beforeImage ||
-        !afterImage
-      ) {
-        alert("Fill apartment fields");
-        return;
-      }
-    }
-
-    let previewImageUrl = "";
+    let blogImageUrl = null;
+    let previewImageUrl = null;
     let galleryUrls = [];
+    let beforeUrl = null;
+    let afterUrl = null;
 
-    let beforeUrl = "";
-    let afterUrl = "";
+    // BLOG
+    if (mode === "blog") {
+      if (blogImage) blogImageUrl = await uploadImage(blogImage);
+    }
 
-    // PROJECTS
+    // PROJECT
     if (mode === "project") {
-      previewImageUrl = await uploadImage(previewImage);
+      if (previewImage) previewImageUrl = await uploadImage(previewImage);
 
-      for (const img of images) {
-        const url = await uploadImage(img);
-        galleryUrls.push(url);
+      if (images.length > 0) {
+        for (const img of images) {
+          galleryUrls.push(await uploadImage(img));
+        }
       }
     }
 
-    // APARTMENTS
+    // APARTMENT
     if (mode === "apartment") {
-      beforeUrl = await uploadImage(beforeImage);
-      afterUrl = await uploadImage(afterImage);
-
-      // APARTMENT GALLERY
-      for (const img of images) {
-        const url = await uploadImage(img);
-        galleryUrls.push(url);
-      }
+      if (beforeImage) beforeUrl = await uploadImage(beforeImage);
+      if (afterImage) afterUrl = await uploadImage(afterImage);
     }
 
-    // CREATE DOC
-    await addDoc(collection(db, "posts"), {
+    const postData = {
       title,
-      content,
+      content: content || null,
       type: mode,
 
-      // PROJECTS
-      imageUrl: previewImageUrl,
-      images: galleryUrls,
+      imageUrl: blogImageUrl || previewImageUrl || null,
+      images: galleryUrls.length ? galleryUrls : null,
 
-      // APARTMENTS
       beforeImage: beforeUrl,
       afterImage: afterUrl,
 
-      // EXTRA
-      price,
-      location,
-      rooms,
-      moreLink,
+      price: price || null,
+      location: location || null,
+      rooms: rooms || null,
+      moreLink: moreLink || null,
 
       createdAt: Date.now(),
-    });
+    };
+
+    if (editingId) {
+      await updateDoc(doc(db, "posts", editingId), postData);
+    } else {
+      await addDoc(collection(db, "posts"), postData);
+    }
 
     // RESET
     setTitle("");
     setContent("");
-
+    setBlogImage(null);
     setPreviewImage(null);
     setImages([]);
-
     setBeforeImage(null);
     setAfterImage(null);
-
     setPrice("");
     setLocation("");
     setRooms("");
     setMoreLink("");
+    setEditingId(null);
 
     fetchPosts();
-
-    alert("Created!");
+    alert(editingId ? "Updated!" : "Created!");
   };
 
-  // DELETE
+  const handleEdit = (post) => {
+    setMode(post.type);
+    setEditingId(post.id);
+
+    setTitle(post.title || "");
+    setContent(post.content || "");
+
+    setPrice(post.price || "");
+    setLocation(post.location || "");
+    setRooms(post.rooms || "");
+    setMoreLink(post.moreLink || "");
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const deletePost = async (id) => {
     await deleteDoc(doc(db, "posts", id));
-
     fetchPosts();
   };
 
-  // LOGOUT
   const handleLogout = async () => {
     await signOut(auth);
-
     navigate("/login");
   };
 
@@ -214,7 +195,6 @@ export default function Admin() {
 
         <div className="adminUpper">
           <img src={Logo} alt="Logo" />
-
           <h1>Admin Panel</h1>
         </div>
 
@@ -222,49 +202,24 @@ export default function Admin() {
           <div className="adminContForm">
 
             {/* MODES */}
-
             <div style={{ marginBottom: 20 }}>
-              <button onClick={() => setMode("blog")}>
-                Blog
-              </button>
-
-              <button
-                onClick={() => setMode("project")}
-                style={{ marginLeft: 10 }}
-              >
-                Projects
-              </button>
-
-              <button
-                onClick={() => setMode("apartment")}
-                style={{ marginLeft: 10 }}
-              >
-                Apartments
-              </button>
-
-              <button
-                onClick={() => setMode("job")}
-                style={{ marginLeft: 10 }}
-              >
-                Careers
-              </button>
+              <button onClick={() => setMode("blog")}>Blog</button>
+              <button onClick={() => setMode("project")}>Projects</button>
+              <button onClick={() => setMode("apartment")}>Apartments</button>
+              <button onClick={() => setMode("job")}>Careers</button>
             </div>
 
             {/* TITLE */}
-
             <input
               className="blogTitle"
-              type="text"
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
 
-            <br />
-            <br />
+            <br /><br />
 
             {/* CONTENT */}
-
             <textarea
               className="blogDesc"
               placeholder="Content"
@@ -272,50 +227,42 @@ export default function Admin() {
               onChange={(e) => setContent(e.target.value)}
             />
 
-            <br />
-            <br />
+            <br /><br />
 
-            {/* PROJECTS */}
-
-            {mode === "project" && (
+            {/* BLOG */}
+            {mode === "blog" && (
               <>
-                <h3>Preview Image</h3>
-
+                <h3>Blog Image</h3>
                 <input
                   type="file"
-                  onChange={(e) =>
-                    setPreviewImage(e.target.files[0])
-                  }
+                  onChange={(e) => setBlogImage(e.target.files[0])}
+                />
+              </>
+            )}
+
+            {/* PROJECT */}
+            {mode === "project" && (
+              <>
+                <h3>Preview</h3>
+                <input
+                  type="file"
+                  onChange={(e) => setPreviewImage(e.target.files[0])}
                 />
 
-                <p>
-                  {previewImage
-                    ? previewImage.name
-                    : "No preview selected"}
-                </p>
+                <br /><br />
 
-                <br />
-
-                <h3>Gallery Images</h3>
-
+                <h3>Gallery</h3>
                 <input
                   type="file"
                   multiple
                   onChange={(e) =>
-                    setImages(
-                      Array.from(e.target.files).filter(validateFile)
-                    )
+                    setImages(Array.from(e.target.files).filter(validateFile))
                   }
                 />
-
-                <p>
-                  {images.length} gallery images selected
-                </p>
               </>
             )}
 
-            {/* APARTMENTS */}
-
+            {/* APARTMENT */}
             {mode === "apartment" && (
               <>
                 <input
@@ -325,8 +272,7 @@ export default function Admin() {
                   onChange={(e) => setPrice(e.target.value)}
                 />
 
-                <br />
-                <br />
+                <br /><br />
 
                 <input
                   className="blogTitle"
@@ -335,8 +281,7 @@ export default function Admin() {
                   onChange={(e) => setLocation(e.target.value)}
                 />
 
-                <br />
-                <br />
+                <br /><br />
 
                 <input
                   className="blogTitle"
@@ -345,8 +290,7 @@ export default function Admin() {
                   onChange={(e) => setRooms(e.target.value)}
                 />
 
-                <br />
-                <br />
+                <br /><br />
 
                 <input
                   className="blogTitle"
@@ -355,103 +299,52 @@ export default function Admin() {
                   onChange={(e) => setMoreLink(e.target.value)}
                 />
 
-                <br />
-                <br />
+                <br /><br />
 
-                <h3>Before Image</h3>
-
+                <h3>Before</h3>
                 <input
                   type="file"
-                  onChange={(e) =>
-                    setBeforeImage(e.target.files[0])
-                  }
+                  onChange={(e) => setBeforeImage(e.target.files[0])}
                 />
 
-                <p>
-                  {beforeImage
-                    ? beforeImage.name
-                    : "No before image"}
-                </p>
+                <br /><br />
 
-                <br />
-
-                <h3>After Image</h3>
-
+                <h3>After</h3>
                 <input
                   type="file"
-                  onChange={(e) =>
-                    setAfterImage(e.target.files[0])
-                  }
+                  onChange={(e) => setAfterImage(e.target.files[0])}
                 />
-
-                <p>
-                  {afterImage
-                    ? afterImage.name
-                    : "No after image"}
-                </p>
-
-                <br />
-
-                <h3>Apartment Gallery</h3>
-
-                <input
-                  type="file"
-                  multiple
-                  onChange={(e) =>
-                    setImages(
-                      Array.from(e.target.files).filter(validateFile)
-                    )
-                  }
-                />
-
-                <p>
-                  {images.length} apartment gallery images
-                </p>
               </>
             )}
 
-            <br />
-            <br />
+            <br /><br />
 
             <button onClick={createItem}>
-              Create {mode}
+              {editingId ? "Update" : "Create"} {mode}
             </button>
 
-            <br />
-            <br />
+            <br /><br />
 
-            <button onClick={handleLogout}>
-              Logout
-            </button>
-
+            <button onClick={handleLogout}>Logout</button>
           </div>
         </div>
 
         <hr />
 
         {/* POSTS */}
-
         <div className="adminContentWrapper">
           <div className="adminContent">
 
-            <h2>
-              All {mode}
-            </h2>
+            <h2>All {mode}</h2>
 
             {posts
               .filter((p) => p.type === mode)
               .map((post) => (
-                <div
-                  key={post.id}
-                  className="adminPostCard"
-                >
+                <div key={post.id} className="adminPostCard">
                   <h3>{post.title}</h3>
 
-                  <button
-                    onClick={() => deletePost(post.id)}
-                  >
-                    Delete
-                  </button>
+                  <button onClick={() => handleEdit(post)}>Edit</button>
+                  <button onClick={() => deletePost(post.id)}>Delete</button>
                 </div>
               ))}
 

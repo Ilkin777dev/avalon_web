@@ -56,33 +56,24 @@ export default function Appartments() {
 
               {/* INFO */}
               <div className="appartmentCardDesc">
-                <h3>{ap.title}</h3>
+  <h3>{ap.title}</h3>
 
-                <p>
-                  <b>Price:</b> {ap.price}$
-                </p>
+  {ap.price && <p><b>Price:</b> {ap.price}$</p>}
 
-                <div className="descriptionText">
-                  <p>
-                    <b>Description:</b> {ap.content}
-                  </p>
-                </div>
+  {ap.content && (
+    <p><b>Description:</b> {ap.content}</p>
+  )}
 
-                <p>
-                  <b>Rooms:</b> {ap.rooms}
-                </p>
+  {ap.rooms && <p><b>Rooms:</b> {ap.rooms}</p>}
 
-                <p>
-                  <b>Address:</b> {ap.location}
-                </p>
+  {ap.location && <p><b>Address:</b> {ap.location}</p>}
 
-                <Link
-                  to={`/apartment/${ap.id}`}
-                  className="moreBtn"
-                >
-                  More
-                </Link>
-              </div>
+  {ap.moreLink && (
+    <a href={ap.moreLink} target="_blank" rel="noreferrer">
+      More
+    </a>
+  )}
+</div>
             </div>
           ))}
         </div>
