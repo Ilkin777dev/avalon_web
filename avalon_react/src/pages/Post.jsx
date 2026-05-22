@@ -47,7 +47,9 @@ export default function Post() {
 
           <div className="postText">
             <h1>{post.title}</h1>
-            <p>{post.content}</p>
+            <div
+                dangerouslySetInnerHTML={{ __html: post.content }}
+            />
           </div>
         </div>
       </div>

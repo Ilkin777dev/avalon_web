@@ -50,8 +50,10 @@ export default function Blog() {
                 <h2>{post.title}</h2>
               </Link>
 
-              <p>{post.content}</p>
-              <p className="slug">{post.slug}</p>
+              {/*<div
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />*/}
+              {/* <p className="slug">{post.slug}</p> */}
             </div>
           ))}
         </div>
