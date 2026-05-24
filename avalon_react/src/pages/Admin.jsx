@@ -15,9 +15,11 @@ import imageCompression from "browser-image-compression";
 
 import { db, auth } from "../firebase";
 import Logo from "../assets/LogoNew.svg";
+
 import "./Admin.css";
 
 export default function Admin() {
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [posts, setPosts] = useState([]);
@@ -38,13 +40,18 @@ export default function Admin() {
   const [rooms, setRooms] = useState("");
   const [moreLink, setMoreLink] = useState("");
 
-  const [beforeImage, setBeforeImage] = useState(null);
-  const [afterImage, setAfterImage] = useState(null);
+  const [beforeImages, setBeforeImages] = useState([]);
+  const [afterImages, setAfterImages] = useState([]);
 
   const navigate = useNavigate();
 
+  // FETCH POSTS
+
   const fetchPosts = async () => {
-    const snapshot = await getDocs(collection(db, "posts"));
+
+    const snapshot = await getDocs(
+      collection(db, "posts")
+    );
 
     const data = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -52,18 +59,32 @@ export default function Admin() {
     }));
 
     setPosts(data);
+
   };
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
+  // VALIDATE FILE
+
   const validateFile = (file) => {
-    const allowed = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+
+    const allowed = [
+      "image/jpeg",
+      "image/png",
+      "image/jpg",
+      "image/webp",
+    ];
+
     return allowed.includes(file.type);
+
   };
 
+  // UPLOAD IMAGE
+
   const uploadImage = async (file) => {
+
     const compressed = await imageCompression(file, {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
@@ -71,6 +92,7 @@ export default function Admin() {
     });
 
     const formData = new FormData();
+
     formData.append("file", compressed);
     formData.append("upload_preset", "blog_upload");
 
@@ -83,92 +105,225 @@ export default function Admin() {
     );
 
     const data = await res.json();
+
     return data.secure_url;
+
   };
 
+  // CREATE / UPDATE
+
   const createItem = async () => {
-    // ONLY TITLE REQUIRED
+
     if (!title) {
       alert("Title required");
       return;
     }
 
-    let blogImageUrl = null;
-    let previewImageUrl = null;
-    let galleryUrls = [];
-    let beforeUrl = null;
-    let afterUrl = null;
+    // EXISTING POST
+
+    let existingPost = null;
+
+    if (editingId) {
+
+      existingPost = posts.find(
+        (p) => p.id === editingId
+      );
+
+    }
+
+    // IMAGES
+
+    let blogImageUrl =
+      existingPost?.imageUrl || null;
+
+    let previewImageUrl =
+      existingPost?.imageUrl || null;
+
+    let galleryUrls =
+      existingPost?.images || [];
+
+    let beforeGallery =
+      existingPost?.beforeImages || [];
+
+    let afterGallery =
+      existingPost?.afterImages || [];
 
     // BLOG
+
     if (mode === "blog") {
-      if (blogImage) blogImageUrl = await uploadImage(blogImage);
+
+      if (blogImage) {
+
+        blogImageUrl =
+          await uploadImage(blogImage);
+
+      }
+
     }
 
     // PROJECT
+
     if (mode === "project") {
-      if (previewImage) previewImageUrl = await uploadImage(previewImage);
+
+      if (previewImage) {
+
+        previewImageUrl =
+          await uploadImage(previewImage);
+
+      }
 
       if (images.length > 0) {
+
+        galleryUrls = [];
+
         for (const img of images) {
-          galleryUrls.push(await uploadImage(img));
+
+          const url =
+            await uploadImage(img);
+
+          galleryUrls.push(url);
+
         }
+
       }
+
     }
 
     // APARTMENT
+
     if (mode === "apartment") {
-      if (beforeImage) beforeUrl = await uploadImage(beforeImage);
-      if (afterImage) afterUrl = await uploadImage(afterImage);
+
+      if (beforeImages.length > 0) {
+
+        beforeGallery = [];
+
+        for (const img of beforeImages) {
+
+          const url =
+            await uploadImage(img);
+
+          beforeGallery.push(url);
+
+        }
+
+      }
+
+      if (afterImages.length > 0) {
+
+        afterGallery = [];
+
+        for (const img of afterImages) {
+
+          const url =
+            await uploadImage(img);
+
+          afterGallery.push(url);
+
+        }
+
+      }
+
     }
 
+    // POST DATA
+
     const postData = {
+
       title,
+
       content: content || null,
+
       type: mode,
 
-      imageUrl: blogImageUrl || previewImageUrl || null,
-      images: galleryUrls.length ? galleryUrls : null,
+      imageUrl:
+        blogImageUrl ||
+        previewImageUrl ||
+        null,
 
-      beforeImage: beforeUrl,
-      afterImage: afterUrl,
+      images:
+        galleryUrls.length > 0
+          ? galleryUrls
+          : [],
+
+      beforeImages:
+        beforeGallery.length > 0
+          ? beforeGallery
+          : [],
+
+      afterImages:
+        afterGallery.length > 0
+          ? afterGallery
+          : [],
 
       price: price || null,
       location: location || null,
       rooms: rooms || null,
       moreLink: moreLink || null,
 
-      createdAt: Date.now(),
+      createdAt:
+        existingPost?.createdAt ||
+        Date.now(),
+
     };
 
+    // UPDATE
+
     if (editingId) {
-      await updateDoc(doc(db, "posts", editingId), postData);
+
+      await updateDoc(
+        doc(db, "posts", editingId),
+        postData
+      );
+
     } else {
-      await addDoc(collection(db, "posts"), postData);
+
+      await addDoc(
+        collection(db, "posts"),
+        postData
+      );
+
     }
 
     // RESET
+
     setTitle("");
     setContent("");
+
     setBlogImage(null);
+
     setPreviewImage(null);
     setImages([]);
-    setBeforeImage(null);
-    setAfterImage(null);
+
+    setBeforeImages([]);
+    setAfterImages([]);
+
     setPrice("");
     setLocation("");
     setRooms("");
     setMoreLink("");
+
     setEditingId(null);
 
     fetchPosts();
-    alert(editingId ? "Updated!" : "Created!");
+
+    alert(
+      editingId
+        ? "Updated!"
+        : "Created!"
+    );
+
   };
 
+  // EDIT
+
   const handleEdit = (post) => {
+
     setMode(post.type);
+
     setEditingId(post.id);
 
     setTitle(post.title || "");
+
     setContent(post.content || "");
 
     setPrice(post.price || "");
@@ -176,100 +331,174 @@ export default function Admin() {
     setRooms(post.rooms || "");
     setMoreLink(post.moreLink || "");
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
   };
+
+  // DELETE
 
   const deletePost = async (id) => {
-    await deleteDoc(doc(db, "posts", id));
+
+    await deleteDoc(
+      doc(db, "posts", id)
+    );
+
     fetchPosts();
+
   };
 
+  // LOGOUT
+
   const handleLogout = async () => {
+
     await signOut(auth);
+
     navigate("/login");
+
   };
 
   return (
     <div className="adminWrapper">
+
       <div className="adminContainer">
 
         <div className="adminUpper">
+
           <img src={Logo} alt="Logo" />
+
           <h1>Admin Panel</h1>
+
         </div>
 
         <div className="adminLower">
+
           <div className="adminContForm">
 
             {/* MODES */}
+
             <div style={{ marginBottom: 20 }}>
-              <button onClick={() => setMode("blog")}>Blog</button>
-              <button onClick={() => setMode("project")}>Projects</button>
-              <button onClick={() => setMode("apartment")}>Apartments</button>
-              <button onClick={() => setMode("job")}>Careers</button>
+
+              <button
+                onClick={() => setMode("blog")}
+              >
+                Blog
+              </button>
+
+              <button
+                onClick={() => setMode("project")}
+              >
+                Projects
+              </button>
+
+              <button
+                onClick={() => setMode("apartment")}
+              >
+                Apartments
+              </button>
+
+              <button
+                onClick={() => setMode("job")}
+              >
+                Careers
+              </button>
+
             </div>
 
             {/* TITLE */}
+
             <input
               className="blogTitle"
               placeholder="Title"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) =>
+                setTitle(e.target.value)
+              }
             />
 
             <br /><br />
 
             {/* CONTENT */}
+
             <textarea
               className="blogDesc"
               placeholder="Content"
               value={content}
-              onChange={(e) => setContent(e.target.value)}
+              onChange={(e) =>
+                setContent(e.target.value)
+              }
             />
 
             <br /><br />
 
             {/* BLOG */}
+
             {mode === "blog" && (
               <>
+
                 <h3>Blog Image</h3>
+
                 <input
                   type="file"
-                  onChange={(e) => setBlogImage(e.target.files[0])}
+                  onChange={(e) =>
+                    setBlogImage(
+                      e.target.files[0]
+                    )
+                  }
                 />
+
               </>
             )}
 
             {/* PROJECT */}
+
             {mode === "project" && (
               <>
-                <h3>Preview</h3>
+
+                <h3>Preview Image</h3>
+
                 <input
                   type="file"
-                  onChange={(e) => setPreviewImage(e.target.files[0])}
+                  onChange={(e) =>
+                    setPreviewImage(
+                      e.target.files[0]
+                    )
+                  }
                 />
 
                 <br /><br />
 
-                <h3>Gallery</h3>
+                <h3>Gallery Images</h3>
+
                 <input
                   type="file"
                   multiple
                   onChange={(e) =>
-                    setImages(Array.from(e.target.files).filter(validateFile))
+                    setImages(
+                      Array.from(
+                        e.target.files
+                      ).filter(validateFile)
+                    )
                   }
                 />
+
               </>
             )}
 
             {/* APARTMENT */}
+
             {mode === "apartment" && (
               <>
+
                 <input
                   className="blogTitle"
                   placeholder="Price"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(e) =>
+                    setPrice(e.target.value)
+                  }
                 />
 
                 <br /><br />
@@ -278,7 +507,9 @@ export default function Admin() {
                   className="blogTitle"
                   placeholder="Location"
                   value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(e) =>
+                    setLocation(e.target.value)
+                  }
                 />
 
                 <br /><br />
@@ -287,7 +518,9 @@ export default function Admin() {
                   className="blogTitle"
                   placeholder="Rooms"
                   value={rooms}
-                  onChange={(e) => setRooms(e.target.value)}
+                  onChange={(e) =>
+                    setRooms(e.target.value)
+                  }
                 />
 
                 <br /><br />
@@ -296,62 +529,133 @@ export default function Admin() {
                   className="blogTitle"
                   placeholder="More Link"
                   value={moreLink}
-                  onChange={(e) => setMoreLink(e.target.value)}
+                  onChange={(e) =>
+                    setMoreLink(e.target.value)
+                  }
                 />
 
                 <br /><br />
 
-                <h3>Before</h3>
+                <h3>Before Gallery</h3>
+
                 <input
                   type="file"
-                  onChange={(e) => setBeforeImage(e.target.files[0])}
+                  multiple
+                  onChange={(e) =>
+                    setBeforeImages(
+                      Array.from(
+                        e.target.files
+                      ).filter(validateFile)
+                    )
+                  }
                 />
+
+                <p>
+                  {
+                    beforeImages.length
+                  } before images
+                </p>
 
                 <br /><br />
 
-                <h3>After</h3>
+                <h3>After Gallery</h3>
+
                 <input
                   type="file"
-                  onChange={(e) => setAfterImage(e.target.files[0])}
+                  multiple
+                  onChange={(e) =>
+                    setAfterImages(
+                      Array.from(
+                        e.target.files
+                      ).filter(validateFile)
+                    )
+                  }
                 />
+
+                <p>
+                  {
+                    afterImages.length
+                  } after images
+                </p>
+
               </>
             )}
 
             <br /><br />
 
             <button onClick={createItem}>
-              {editingId ? "Update" : "Create"} {mode}
+
+              {editingId
+                ? "Update"
+                : "Create"}{" "}
+
+              {mode}
+
             </button>
 
             <br /><br />
 
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleLogout}>
+              Logout
+            </button>
+
           </div>
+
         </div>
 
         <hr />
 
         {/* POSTS */}
+
         <div className="adminContentWrapper">
+
           <div className="adminContent">
 
-            <h2>All {mode}</h2>
+            <h2>
+              All {mode}
+            </h2>
 
             {posts
-              .filter((p) => p.type === mode)
+              .filter(
+                (p) => p.type === mode
+              )
               .map((post) => (
-                <div key={post.id} className="adminPostCard">
-                  <h3>{post.title}</h3>
 
-                  <button onClick={() => handleEdit(post)}>Edit</button>
-                  <button onClick={() => deletePost(post.id)}>Delete</button>
+                <div
+                  key={post.id}
+                  className="adminPostCard"
+                >
+
+                  <h3>
+                    {post.title}
+                  </h3>
+
+                  <button
+                    onClick={() =>
+                      handleEdit(post)
+                    }
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      deletePost(post.id)
+                    }
+                  >
+                    Delete
+                  </button>
+
                 </div>
+
               ))}
 
           </div>
+
         </div>
 
       </div>
+
     </div>
   );
 }

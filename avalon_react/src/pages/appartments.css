@@ -18,90 +18,85 @@
     gap: 20px;
 }
 
-.appartmentCard {
-    overflow: hidden;
-    padding: 10px;
-    border: 1px solid #0F2A45;
-    background: white;
-    transition: 0.3s;
+/* ================= CARD ================= */
 
+.appartmentCard {
+    background: white;
+    border: 1px solid #0F2A45;
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
+    transition: 0.3s;
+    height: 100%;
 }
 
 .appartmentCard:hover {
     transform: translateY(-5px);
 }
 
-/* ОДИНАКОВАЯ ВЫСОТА ИЗОБРАЖЕНИЙ */
-.appartmentCard img,
-.appartmentCard .react-compare-image,
-.appartmentCard .ReactCompareImage {
+/* ================= IMAGE BOX (КЛЮЧЕВОЙ ФИКС) ================= */
+
+.compareBox {
+    width: 100%;
+    height: 220px;        /* 🔥 фикс высоты */
+    overflow: hidden;
+    position: relative;
+}
+
+/* обычная картинка */
+.appartmentImage {
     width: 100%;
     height: 220px;
     object-fit: cover;
     display: block;
 }
 
-.appartmentCard .appartmentImage {
-    border: 2px solid red !important
+/* ================= react-compare-image FIX ================= */
+
+.compareBox > div {
+    height: 220px !important;
 }
 
-/* FIX ДЛЯ react-compare-image */
-.appartmentCard div[class*="ReactCompareImage"] img {
+.compareBox img {
     height: 220px !important;
-    object-fit: cover;
+    object-fit: cover !important;
 }
+
+/* убираем растяжение UI ползунка */
+.compareBox .ReactCompareImage {
+    height: 220px !important;
+}
+
+/* ================= CONTENT ================= */
 
 .appartmentCardDesc {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: 12px;
 }
 
 .appartmentCardDesc h3 {
     color: #0F2A45;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.appartmentCardDesc p:not(:last-child) {
-    margin-bottom: 10px;
+.appartmentCardDesc p {
+    margin-bottom: 8px;
 }
 
-/* DESCRIPTION LIMIT */
-.descriptionText {
-    position: relative;
-    max-height: 80px;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-/* FADE EFFECT */
-.descriptionText::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-    height: 40px;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0),
-        rgba(255,255,255,1)
-    );
-}
+/* ================= BUTTON ================= */
 
 .moreBtn {
-    display: inline-block;
     margin-top: auto;
+    display: inline-block;
     padding: 10px 18px;
     background: #0F2A45;
     color: white;
     text-decoration: none;
-    transition: 0.3s;
     width: fit-content;
+    transition: 0.3s;
 }
 
 .moreBtn:hover {
