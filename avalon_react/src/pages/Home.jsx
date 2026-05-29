@@ -72,7 +72,7 @@ export default function Home() {
                 <h2>500</h2>
               </div>
               <div className="pluses_text">
-                <h3>SATISFIED CLIENTS</h3>
+                <h3>TOTAL PEOJECTS</h3>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function Home() {
         <AboutUs />
         {/* <OurTeam /> */}
 
-        {/* 🔥 NEW: Apartments Section */}
+        {/* 🔥 NEW: Apartments Section
         <div className="mainAppartWrapper">
           <div className="mainAppart">
             <h2>LATEST APARTMENTS</h2>
@@ -127,7 +127,7 @@ export default function Home() {
               <BlueButton linkText="/appartments/" linkDesc="View More" />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Page Blog Section */}
 

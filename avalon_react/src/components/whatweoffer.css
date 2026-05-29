@@ -48,7 +48,7 @@
 .cont_text_blue_but a {
     color: white;
     text-decoration: none;
-    background: #0F2A45;
+    background: #5C8EC7;
     padding: 15px 20px 15px 20px;
 }
 
@@ -61,7 +61,7 @@
 
 .adv_card:hover {
     color: white;
-    background: #0F2A45;
+    background: #5C8EC7;
 }
 
 .adv_card:hover .card_number h3 {

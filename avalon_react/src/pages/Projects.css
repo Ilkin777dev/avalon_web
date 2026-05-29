@@ -45,8 +45,7 @@
 /* IMAGE */
 
 .project_image_wrapper {
-    width: 55%;
-
+    width: 40%;
     overflow: hidden;
 }
 
@@ -68,7 +67,7 @@
 /* CONTENT */
 
 .project_content {
-    width: 45%;
+    width: 50%;
 }
 
 /* LABEL */
