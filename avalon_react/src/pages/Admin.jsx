@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import imageCompression from "browser-image-compression";
 
 import { db, auth } from "../firebase";
-import Logo from "../assets/LogoNew.svg";
+import Logo from "../assets/LogoNew.png";
 
 import "./Admin.css";
 

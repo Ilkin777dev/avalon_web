@@ -3,37 +3,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0F2A45;
+    background: #5C8EC7;
 }
 
 .loginContainer {
+    width: 40%;
     background: white;
     padding: 40px;
     text-align: center;
 }
 
 .loginContainer img {
+    width: 100%;
     margin-bottom: 50px;
 }
 
 .loginContainer h1 {
-    color: #0F2A45;
+    color: #5C8EC7;
     margin-bottom: 50px;
 }
 
 .loginContainer input {
-    width: 100%;
+    width: 60%;
     height: 40px;
     padding-left: 10px;
     outline: none;
-    border: 1px solid #0F2A45;
+    border: 1px solid #5C8EC7;
     font-family: "Montserrat", sans-serif;
 }
 
 .loginContainer button {
-    width: 80%;
+    width: 30%;
     height: 40px;
-    background: #0F2A45;
+    background: #5C8EC7;
     color: white;
     border: none;
     margin-top: 20px;
