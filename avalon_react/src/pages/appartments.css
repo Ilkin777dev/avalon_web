@@ -35,6 +35,11 @@
     transform: translateY(-5px);
 }
 
+.appartmentMedia div:first-of-type {
+    /* height: 250px !important; */
+    /* border: 2px solid red; */
+}
+
 /* ================= IMAGE BOX (КЛЮЧЕВОЙ ФИКС) ================= */
 
 .compareBox {
