@@ -60,8 +60,8 @@ export default function Appartments() {
               <div className="appartmentMedia">
   {ap.beforeImages?.[0] && ap.afterImages?.[0] ? (
     <ReactCompareImage
-      leftImage={ap.beforeImages[0]}
-      rightImage={ap.afterImages[0]}
+      leftImage={ap.previewBefore}
+      rightImage={ap.previewAfter}
     />
   ) : (
     <img

@@ -1,3 +1,5 @@
+// Admin.jsx
+
 import { useState, useEffect } from "react";
 import {
   addDoc,
@@ -40,12 +42,15 @@ export default function Admin() {
   const [rooms, setRooms] = useState("");
   const [moreLink, setMoreLink] = useState("");
 
+  // PREVIEW IMAGES
+  const [previewBefore, setPreviewBefore] = useState(null);
+  const [previewAfter, setPreviewAfter] = useState(null);
+
+  // GALLERIES
   const [beforeImages, setBeforeImages] = useState([]);
   const [afterImages, setAfterImages] = useState([]);
 
   const navigate = useNavigate();
-
-  // FETCH POSTS
 
   const fetchPosts = async () => {
 
@@ -66,8 +71,6 @@ export default function Admin() {
     fetchPosts();
   }, []);
 
-  // VALIDATE FILE
-
   const validateFile = (file) => {
 
     const allowed = [
@@ -81,8 +84,6 @@ export default function Admin() {
 
   };
 
-  // UPLOAD IMAGE
-
   const uploadImage = async (file) => {
 
     const compressed = await imageCompression(file, {
@@ -94,7 +95,11 @@ export default function Admin() {
     const formData = new FormData();
 
     formData.append("file", compressed);
-    formData.append("upload_preset", "blog_upload");
+
+    formData.append(
+      "upload_preset",
+      "blog_upload"
+    );
 
     const res = await fetch(
       "https://api.cloudinary.com/v1_1/dpdlzlhke/image/upload",
@@ -110,8 +115,6 @@ export default function Admin() {
 
   };
 
-  // CREATE / UPDATE
-
   const createItem = async () => {
 
     if (!title) {
@@ -119,37 +122,19 @@ export default function Admin() {
       return;
     }
 
-    // EXISTING POST
+    let blogImageUrl = null;
 
-    let existingPost = null;
+    let previewImageUrl = null;
 
-    if (editingId) {
+    let galleryUrls = [];
 
-      existingPost = posts.find(
-        (p) => p.id === editingId
-      );
+    let previewBeforeUrl = null;
+    let previewAfterUrl = null;
 
-    }
-
-    // IMAGES
-
-    let blogImageUrl =
-      existingPost?.imageUrl || null;
-
-    let previewImageUrl =
-      existingPost?.imageUrl || null;
-
-    let galleryUrls =
-      existingPost?.images || [];
-
-    let beforeGallery =
-      existingPost?.beforeImages || [];
-
-    let afterGallery =
-      existingPost?.afterImages || [];
+    let beforeGallery = [];
+    let afterGallery = [];
 
     // BLOG
-
     if (mode === "blog") {
 
       if (blogImage) {
@@ -162,7 +147,6 @@ export default function Admin() {
     }
 
     // PROJECT
-
     if (mode === "project") {
 
       if (previewImage) {
@@ -174,14 +158,11 @@ export default function Admin() {
 
       if (images.length > 0) {
 
-        galleryUrls = [];
-
         for (const img of images) {
 
-          const url =
-            await uploadImage(img);
-
-          galleryUrls.push(url);
+          galleryUrls.push(
+            await uploadImage(img)
+          );
 
         }
 
@@ -190,34 +171,45 @@ export default function Admin() {
     }
 
     // APARTMENT
-
     if (mode === "apartment") {
 
-      if (beforeImages.length > 0) {
+      // PREVIEW BEFORE
+      if (previewBefore) {
 
-        beforeGallery = [];
+        previewBeforeUrl =
+          await uploadImage(previewBefore);
+
+      }
+
+      // PREVIEW AFTER
+      if (previewAfter) {
+
+        previewAfterUrl =
+          await uploadImage(previewAfter);
+
+      }
+
+      // BEFORE GALLERY
+      if (beforeImages.length > 0) {
 
         for (const img of beforeImages) {
 
-          const url =
-            await uploadImage(img);
-
-          beforeGallery.push(url);
+          beforeGallery.push(
+            await uploadImage(img)
+          );
 
         }
 
       }
 
+      // AFTER GALLERY
       if (afterImages.length > 0) {
-
-        afterGallery = [];
 
         for (const img of afterImages) {
 
-          const url =
-            await uploadImage(img);
-
-          afterGallery.push(url);
+          afterGallery.push(
+            await uploadImage(img)
+          );
 
         }
 
@@ -225,48 +217,48 @@ export default function Admin() {
 
     }
 
-    // POST DATA
-
     const postData = {
 
       title,
-
       content: content || null,
-
       type: mode,
 
+      // BLOG / PROJECT
       imageUrl:
         blogImageUrl ||
         previewImageUrl ||
         null,
 
       images:
-        galleryUrls.length > 0
+        galleryUrls.length
           ? galleryUrls
-          : [],
+          : null,
+
+      // APARTMENT
+      previewBefore:
+        previewBeforeUrl || null,
+
+      previewAfter:
+        previewAfterUrl || null,
 
       beforeImages:
-        beforeGallery.length > 0
+        beforeGallery.length
           ? beforeGallery
-          : [],
+          : null,
 
       afterImages:
-        afterGallery.length > 0
+        afterGallery.length
           ? afterGallery
-          : [],
+          : null,
 
       price: price || null,
       location: location || null,
       rooms: rooms || null,
       moreLink: moreLink || null,
 
-      createdAt:
-        existingPost?.createdAt ||
-        Date.now(),
+      createdAt: Date.now(),
 
     };
-
-    // UPDATE
 
     if (editingId) {
 
@@ -285,7 +277,6 @@ export default function Admin() {
     }
 
     // RESET
-
     setTitle("");
     setContent("");
 
@@ -293,6 +284,9 @@ export default function Admin() {
 
     setPreviewImage(null);
     setImages([]);
+
+    setPreviewBefore(null);
+    setPreviewAfter(null);
 
     setBeforeImages([]);
     setAfterImages([]);
@@ -314,8 +308,6 @@ export default function Admin() {
 
   };
 
-  // EDIT
-
   const handleEdit = (post) => {
 
     setMode(post.type);
@@ -327,8 +319,11 @@ export default function Admin() {
     setContent(post.content || "");
 
     setPrice(post.price || "");
+
     setLocation(post.location || "");
+
     setRooms(post.rooms || "");
+
     setMoreLink(post.moreLink || "");
 
     window.scrollTo({
@@ -337,8 +332,6 @@ export default function Admin() {
     });
 
   };
-
-  // DELETE
 
   const deletePost = async (id) => {
 
@@ -349,8 +342,6 @@ export default function Admin() {
     fetchPosts();
 
   };
-
-  // LOGOUT
 
   const handleLogout = async () => {
 
@@ -367,7 +358,10 @@ export default function Admin() {
 
         <div className="adminUpper">
 
-          <img src={Logo} alt="Logo" />
+          <img
+            src={Logo}
+            alt="Logo"
+          />
 
           <h1>Admin Panel</h1>
 
@@ -418,7 +412,8 @@ export default function Admin() {
               }
             />
 
-            <br /><br />
+            <br />
+            <br />
 
             {/* CONTENT */}
 
@@ -431,7 +426,8 @@ export default function Admin() {
               }
             />
 
-            <br /><br />
+            <br />
+            <br />
 
             {/* BLOG */}
 
@@ -457,7 +453,7 @@ export default function Admin() {
             {mode === "project" && (
               <>
 
-                <h3>Preview Image</h3>
+                <h3>Preview</h3>
 
                 <input
                   type="file"
@@ -468,9 +464,10 @@ export default function Admin() {
                   }
                 />
 
-                <br /><br />
+                <br />
+                <br />
 
-                <h3>Gallery Images</h3>
+                <h3>Gallery</h3>
 
                 <input
                   type="file"
@@ -501,7 +498,8 @@ export default function Admin() {
                   }
                 />
 
-                <br /><br />
+                <br />
+                <br />
 
                 <input
                   className="blogTitle"
@@ -512,7 +510,8 @@ export default function Admin() {
                   }
                 />
 
-                <br /><br />
+                <br />
+                <br />
 
                 <input
                   className="blogTitle"
@@ -523,7 +522,8 @@ export default function Admin() {
                   }
                 />
 
-                <br /><br />
+                <br />
+                <br />
 
                 <input
                   className="blogTitle"
@@ -534,7 +534,40 @@ export default function Admin() {
                   }
                 />
 
-                <br /><br />
+                <br />
+                <br />
+
+                {/* PREVIEWS */}
+
+                <h3>Preview Before</h3>
+
+                <input
+                  type="file"
+                  onChange={(e) =>
+                    setPreviewBefore(
+                      e.target.files[0]
+                    )
+                  }
+                />
+
+                <br />
+                <br />
+
+                <h3>Preview After</h3>
+
+                <input
+                  type="file"
+                  onChange={(e) =>
+                    setPreviewAfter(
+                      e.target.files[0]
+                    )
+                  }
+                />
+
+                <br />
+                <br />
+
+                {/* BEFORE GALLERY */}
 
                 <h3>Before Gallery</h3>
 
@@ -550,13 +583,10 @@ export default function Admin() {
                   }
                 />
 
-                <p>
-                  {
-                    beforeImages.length
-                  } before images
-                </p>
+                <br />
+                <br />
 
-                <br /><br />
+                {/* AFTER GALLERY */}
 
                 <h3>After Gallery</h3>
 
@@ -572,16 +602,11 @@ export default function Admin() {
                   }
                 />
 
-                <p>
-                  {
-                    afterImages.length
-                  } after images
-                </p>
-
               </>
             )}
 
-            <br /><br />
+            <br />
+            <br />
 
             <button onClick={createItem}>
 
@@ -593,7 +618,8 @@ export default function Admin() {
 
             </button>
 
-            <br /><br />
+            <br />
+            <br />
 
             <button onClick={handleLogout}>
               Logout
@@ -611,14 +637,10 @@ export default function Admin() {
 
           <div className="adminContent">
 
-            <h2>
-              All {mode}
-            </h2>
+            <h2>All {mode}</h2>
 
             {posts
-              .filter(
-                (p) => p.type === mode
-              )
+              .filter((p) => p.type === mode)
               .map((post) => (
 
                 <div
@@ -626,9 +648,7 @@ export default function Admin() {
                   className="adminPostCard"
                 >
 
-                  <h3>
-                    {post.title}
-                  </h3>
+                  <h3>{post.title}</h3>
 
                   <button
                     onClick={() =>
