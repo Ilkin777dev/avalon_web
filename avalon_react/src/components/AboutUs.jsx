@@ -1,7 +1,7 @@
 import "./aboutUs.css"
 import aboutUsImage from "../assets/about_us_img.png"
 import avalonManagementImage from "../assets/avalon_management_group.png"
-import inKitchenImage from "../assets/infocus_main_page.png"
+import inKitchenImage from "../assets/infocus_main_page.jpeg"
 
 export default function AboutUs() {
     return (

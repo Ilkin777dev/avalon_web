@@ -13,7 +13,7 @@ import ContTextBlueBut from "../components/ContTextBlueBut";
 import ContactUs from "../components/ContactUs";
 import MediaLinks from "../components/MediaLinks";
 import Footer from "../components/Footer";
-import CareersImage from "../assets/Careers/careers_image.png";
+import CareersImage from "../assets/Careers/careers_image.jpeg";
 import "../App.css";
 
 export default function Home() {
@@ -79,7 +79,7 @@ export default function Home() {
         </div>
 
         <AboutUs />
-        {/* <OurTeam /> */}
+        <OurTeam />
 
         {/* 🔥 NEW: Apartments Section
         <div className="mainAppartWrapper">

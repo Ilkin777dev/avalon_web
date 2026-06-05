@@ -43,7 +43,7 @@ export default function ContactUs() {
         {/* MAP */}
         <div className="contact_us_map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3426.234267156237!2d-74.75516686915195!3d40.24500556128509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c15841e71ce58d%3A0xe4143880d1540bee!2zOTkwIFNwcnVjZSBTdCAjMTAxLCBMYXdyZW5jZSBUb3duc2hpcCwgTkogMDg2NDgsINCh0KjQkA!5e0!3m2!1sru!2saz!4v1777386221084!5m2!1sru!2saz"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3426.234267156237!2d-74.75516686915195!3d40.24500556128509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c15841e71ce58d%3A0xe4143880d1540bee!2zOTkwIFNwcnVjZSBTdCAjMTAxLCBMYXdyZW5jZSBUb3duc2hpcCwgTkogMDg2NDgsINCh0KjQkA!5e0!3m2!1sru!2saz!4v1777386221084!5m2!1s!2saz"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="map"

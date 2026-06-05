@@ -13,8 +13,12 @@
     margin: 0 auto;
 }
 
+.our_team:not(:last-child) {
+    margin-bottom: 50px;
+}
+
 .team_card {
-    width: 30%;
+    width: 25%;
 }
 
 .team_card_image {
@@ -43,7 +47,7 @@
     color: white;
 }
 
-.team_card_desc p {
+.team_card_desc a {
     color: #D2D2D2;
 }
 
