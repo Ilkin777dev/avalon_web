@@ -57,7 +57,7 @@
     display: flex;
     /* justify-content: space-between; */
     padding-bottom: 5px;
-    border-bottom: 1px solid #5C8EC7;
+    border-bottom: 1px solid #000D20;
 }
 
 .header_left_side {
@@ -131,7 +131,7 @@
   position: absolute;
   height: 6px;
   width: 80%;
-  background: #5C8EC7;
+  background: #000D20;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);

@@ -2,7 +2,7 @@
     /* height: 100vh; */
     padding-top: 40px;
     padding-bottom: 40px;
-    background: #5C8EC7;
+    background: #000D20;
 }
 
 .adminContainer {
@@ -24,7 +24,7 @@
 }
 
 .adminUpper h1 {
-    color: #5C8EC7;
+    color: #000D20;
 }
 
 .adminLower {
@@ -42,8 +42,8 @@
     height: 40px;
     padding: 10px;
     outline: none;
-    color: #5C8EC7;
-    border: 1px solid #5C8EC7;
+    color: #000D20;
+    border: 1px solid #000D20;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -52,7 +52,7 @@
     height: 200px;
     padding: 10px;
     outline: none;
-    border: 1px solid #5C8EC7;
+    border: 1px solid #000D20;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .uploadBtn {
-  background: #5C8EC7;
+  background: #000D20;
   color: white;
   padding: 10px 15px;
   cursor: pointer;
@@ -79,14 +79,14 @@
     background: none;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    border: 1px solid #5C8EC7;
+    border: 1px solid #000D20;
     font-family: "Montserrat", sans-serif;
 }
 
 .adminContForm button:hover {
-    background: #5C8EC7;
+    background: #000D20;
     color: white;
-    border: 1px solid #5C8EC7;
+    border: 1px solid #000D20;
 }
 
 .adminContentWrapper {

@@ -28,7 +28,7 @@ export default function AboutUs() {
                             <p>
                                 Principal Partnership, established in 2015, was founded with a clear vision: to create a lending platform built around the real needs of real estate investors. What began as a focused partnership has evolved into a trusted financing group committed to helping investors grow, build, and scale with confidence.
                                 <br /><br />
-                                Today, Avalon Management Group proudly provides strategic residential real estate financing solutions nationwide, combining speed, reliability, and hands-on industry experience. As a privately owned company, we understand the challenges investors face because our foundation was built within the investment world itself.
+                                Today, Avalon Development proudly provides strategic residential real estate financing solutions nationwide, combining speed, reliability, and hands-on industry experience. As a privately owned company, we understand the challenges investors face because our foundation was built within the investment world itself.
                                 <br /><br />
                                 We specialize in delivering tailored financing solutions including Ground Up Construction, Multifamily Bridge Loans, Fix & Flip Financing, and 30 Year Rental Loans, all designed to help investors move quickly, seize opportunities, and maximize long term growth.
                                 <br /><br />
@@ -62,7 +62,7 @@ export default function AboutUs() {
                                 <p>You can contact us via: <br /><br /> <a href="tel:+16098077777">+1-609-807-7777</a></p>
                             </p>
 
-                            <a href="https://avalonmgmt.managebuilding.com/Resident/portal/login" target="_blank">View More</a>
+                            <a href="https://avalonmgmt.managebuilding.com/Resident/portal/login" target="_blank">Tenant Portal</a>
                         </div>
                     </div>
                 </div>

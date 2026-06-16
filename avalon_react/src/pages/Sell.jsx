@@ -38,7 +38,7 @@ export default function Sell() {
         <div className="sell_hero">
           <h1>Sell Your Property</h1>
           <p>
-            We help you sell your property quickly and at the best market price.
+            Get an Offer Today. Sell in 10 Days
           </p>
         </div>
 

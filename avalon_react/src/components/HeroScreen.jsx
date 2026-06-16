@@ -15,7 +15,7 @@ export default function HeroScreen() {
 
       <div className="hero_screen">
         <div className="hero_screen_content">  
-          <ContTextTransBut title="FOCUSED PROPERTY MANAGEMENT" text="Avalon Management Group has quickly become synonymous with quality service and dependability in the residential, commercial and retail real estate industry. We offer a comprehensive suite of products tailored for real estate investors, including property management, financing, accounting and much more." link="#aboutUs" textLink="About Us" />
+          <ContTextTransBut title="FOCUSED PROPERTY MANAGEMENT" text="Avalon Development has quickly become synonymous with quality service and dependability in the residential, commercial and retail real estate industry. We offer a comprehensive suite of products tailored for real estate investors, including property management, financing, accounting and much more." link="#aboutUs" textLink="About Us" />
         </div>
       </div>
     </div>
