@@ -141,6 +141,12 @@
     color: white;
 }
 
+.projectUnderline {
+    width: 100%;
+    margin-bottom: 40px;
+    border: 1px solid #0F2A45;
+}
+
 /* MOBILE */
 
 @media screen and (max-width: 1000px) {

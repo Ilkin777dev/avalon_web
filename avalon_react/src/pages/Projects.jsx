@@ -84,12 +84,16 @@ export default function Projects() {
                   <h2>{project.title}</h2>
                 </Link>
 
+                <div className="projectUnderline">{/* Underline */}</div>
+
                 <div
                   className="project_text"
                   dangerouslySetInnerHTML={{
                     __html: project.content,
                   }}
                 ></div>
+
+                <div className="projectUnderline">{/* Underline */}</div>
 
                 <Link
                   to={`/project/${project.id}`}

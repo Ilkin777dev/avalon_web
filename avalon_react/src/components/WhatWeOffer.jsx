@@ -30,7 +30,7 @@ export default function WhatWeOffer() {
                         </div>
                     </div>
                     <div class="what_we_offer_upper_right">
-                        <div class="adv_card_wrapper">
+                        {/* <div class="adv_card_wrapper">
                             <div class="adv_card">
                                 <div class="adv_card_title">
                                     <div class="adv_card_upper">
@@ -52,11 +52,30 @@ export default function WhatWeOffer() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div class="what_we_offer_lower">
-                    <div class="adv_card">
+                    <div class="adv_card first_adv_card">
+                        <div class="adv_card_title">
+                            <div class="adv_card_upper">
+                                <div class="card_number">
+                                    <h3>01</h3>
+                                </div>
+                            </div>
+                            <div class="adv_card_lower">
+                                <div class="card_title">
+                                    <h3>Driven by Opportunity</h3>
+                                </div>
+                                <div class="card_desc">
+                                    <p>
+                                        Efficient processes designed to create value without delays.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="adv_card second_adv_card">
                         <div class="adv_card_title">
                             <div class="adv_card_upper">
                                 <div class="card_number">
@@ -65,18 +84,17 @@ export default function WhatWeOffer() {
                             </div>
                             <div class="adv_card_lower">
                                 <div class="card_title">
-                                    <h3>Technical Revival</h3>
+                                    <h3>Excellence In Execution</h3>
                                 </div>
                                 <div class="card_desc">
                                     <p>
-                                        We specialize in the complex restoration of aging infrastructure, blending
-                                        original structural integrity with modern technological upgrades.
+                                        Turning plans into successful outcomes with precision and expertise.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="adv_card">
+                    <div class="adv_card third_adv_card">
                         <div class="adv_card_title">
                             <div class="adv_card_upper">
                                 <div class="card_number">
@@ -85,33 +103,11 @@ export default function WhatWeOffer() {
                             </div>
                             <div class="adv_card_lower">
                                 <div class="card_title">
-                                    <h3>Reconstruction</h3>
+                                    <h3>Built on Trust</h3>
                                 </div>
                                 <div class="card_desc">
                                     <p>
-                                        When a structure no longer meets the demands of the modern market, we provide
-                                        the engineering intelligence to rebuild from the ground up.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="adv_card">
-                        <div class="adv_card_title">
-                            <div class="adv_card_upper">
-                                <div class="card_number">
-                                    <h3>04</h3>
-                                </div>
-                            </div>
-                            <div class="adv_card_lower">
-                                <div class="card_title">
-                                    <h3>Technical Revival</h3>
-                                </div>
-                                <div class="card_desc">
-                                    <p>
-                                        We offer specialized advisory services that bridge the gap between ambitious
-                                        goals and operational reality. Our consultants provide the architectural
-                                        framework for your business success.
+                                        Creating lasting relationships through transparency, reliability, and results.
                                     </p>
                                 </div>
                             </div>
