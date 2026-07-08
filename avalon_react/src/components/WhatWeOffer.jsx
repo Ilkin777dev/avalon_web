@@ -19,7 +19,7 @@ export default function WhatWeOffer() {
                                     OUR PROFESSIONALS CONSTRUCTION SERVICES
                                 </h1>
                                 <p>
-                                    Avalon Management Group has quickly become synonymous with quality service and
+                                    Avalon Deevelopment has quickly become synonymous with quality service and
                                     dependability in the residential,
                                     commercial and retail real estate industry. We offer a comprehensive suite of
                                     products tailored for real estate

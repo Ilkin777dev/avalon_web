@@ -45,8 +45,20 @@
         margin-bottom: 50px;
     }
 
+    .about_us_left img {
+        margin: 0 auto;
+    }
+
     .about_us_right {
         width: 100%;
         justify-content: center;
+    }
+
+    .about_us_right img {
+        margin: 0 auto;
+    }
+
+    .avalonManagementImage {
+        display: none !important;
     }
 }

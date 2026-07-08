@@ -68,7 +68,7 @@ export default function AboutUs() {
                 </div>
 
                 <div className="about_us_right">
-                    <img src={avalonManagementImage} alt="Avalon Management" />
+                    <img className="avalonManagementImage" src={avalonManagementImage} alt="Avalon Management" />
                 </div>
             </div>
 

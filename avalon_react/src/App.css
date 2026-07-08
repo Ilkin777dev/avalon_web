@@ -1,200 +1,165 @@
 .plusesImageWrapper {
-    width: 100%;
-    margin-bottom: 100px;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .plusesImageWrapper img {
-    width: 100%;
-    display: block;
-}
-
-.pluses_wrapper {
-    color: white;
-    background: #18181B;
-    padding: 100px 0px 100px 0px;
-    margin-bottom: 100px;
-}
-
-.pluses {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-.pluses_card {
-    text-align: center;
-}
-
-.pluses_title h2 {
-    font-size: 3vw;
-}
-
-.pluses_text h3 {
-    font-size: 1.8vw;
+  width: 100%;
+  display: block;
 }
 
 /* Main Page Apartments Section */
 
 .mainAppartWrapper {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .mainAppart {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .mainAppart h2 {
-    color: #868686;
-    text-decoration: underline;
-    margin-bottom: 50px;
+  color: #868686;
+  text-decoration: underline;
+  margin-bottom: 50px;
 }
 
 .rowAppart {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .mainAppartCardImg {
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 20px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .mainAppartCardCont h3 {
-    color: #18181B;
-    margin-bottom: 15px;
+  color: #18181b;
+  margin-bottom: 15px;
 }
 
 .mainAppartCardDesc {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .mainAppartCardAdv p:not(:last-child) {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .mainAppartButt {
-    text-align: center;
+  text-align: center;
 }
 
 /* Main Page Blog Styles */
 
 .mainBlogSection {
-    height: 100vh;
-    background: url(./assets/bgs/mainBlogBgImage.png) no-repeat center center;
-    background-size: cover;
-    margin-bottom: 100px;
+  height: 100vh;
+  background: url(./assets/bgs/mainBlogBgImage.png) no-repeat center center;
+  background-size: cover;
+  margin-bottom: 100px;
 }
 
 .mainBlog {
-    width: 60%;
-    margin: 0 auto;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .mainBlog {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .mainBlogCont {
-    text-align: center;
+  text-align: center;
 }
 
 .mainBlogCont h2 {
-    color: white;
-    font-size: 3vw;
-    margin-bottom: 40px;
+  color: white;
+  font-size: 3vw;
+  margin-bottom: 40px;
 }
 
 .mainBlogCont p {
-    color: white;
-    font-size: 1.2vw;
-    margin-bottom: 100px;
+  color: white;
+  font-size: 1.2vw;
+  margin-bottom: 100px;
 }
 
 /* CAREERS SECTION STYLES */
 
 .careersSectionWrapper {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .careersSection {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .careersSection h2 {
-    color: #868686;
-    text-decoration: underline;
-    margin-bottom: 50px;
+  color: #868686;
+  text-decoration: underline;
+  margin-bottom: 50px;
 }
 
 .careersSectionCont {
-    display: flex;
+  display: flex;
 }
 
 .careersLeft {
-    width: 50%;
+  width: 50%;
 }
 
 .careersLeft img {
-    width: 90%;
-    display: block;
+  width: 90%;
+  display: block;
 }
 
 .careersRight {
-    width: 50%;
+  width: 50%;
 }
 
 @media screen and (max-width: 1000px) {
-    .pluses {
-        flex-direction: column;
-        align-items: center;
-    }
+  .plusesImageWrapper {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    /* border: 1px dotted red; */
+  }
 
-    .pluses_card:not(:last-child) {
-        margin-bottom: 50px;
-    }
+  /* Main Blog Responsive */
 
-    .pluses_title h2 {
-        font-size: 5vw;
-    }
+  .mainBlog {
+    width: 90%;
+  }
 
-    .pluses_text h3 {
-        font-size: 3vw;
-    }
+  .mainBlogCont h2 {
+    font-size: 5vw;
+  }
 
-    /* Main Blog Responsive */
+  .mainBlogCont p {
+    font-size: 3vw;
+  }
 
-    .mainBlog {
-        width: 90%;
-    }
+  .careersSectionCont {
+    flex-direction: column;
+  }
 
-    .mainBlogCont h2 {
-        font-size: 5vw;
-    }
+  .careersLeft {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-    .mainBlogCont p {
-        font-size: 3vw;
-    }
+  .careersLeft img {
+    width: 100%;
+  }
 
-    .careersSectionCont {
-        flex-direction: column;
-    }
-
-    .careersLeft {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    .careersLeft img {
-        width: 100%;
-    }
-
-    .careersRight {
-        width: 100%;
-        text-align: center;
-    }
+  .careersRight {
+    width: 100%;
+    text-align: center;
+  }
 }

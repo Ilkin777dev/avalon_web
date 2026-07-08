@@ -48,14 +48,12 @@
     padding: 5px 0px 0px 0px;
     z-index: 10;
     position: relative;
-    /* background: #00000084; */
 }
 
 .header {
     width: 90%;
     margin: 0 auto;
     display: flex;
-    /* justify-content: space-between; */
     padding-bottom: 5px;
     border-bottom: 1px solid #000D20;
 }
@@ -66,7 +64,7 @@
 }
 
 .header_left_side a img {
-    width: 100%;
+    width: 70%;
     display: block;
 }
 
@@ -194,10 +192,11 @@
         width: 85%;
         padding-top: 10px;
         padding-left: 20px;
+        
     }
 
     .mobile_header_left a img {
-        width: 25%;
+        width: 30%;
     }
 
     .mobile_header_right {
