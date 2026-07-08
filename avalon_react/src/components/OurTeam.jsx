@@ -10,6 +10,7 @@ import greidyImg from "../assets/TeamImages/greidy.png"
 import peterImg from "../assets/TeamImages/peter.png"
 import sabinaImg from "../assets/TeamImages/sabina.png"
 import validaImg from "../assets/TeamImages/valida.png"
+import dayanaImg from "../assets/TeamImages/dayana.png";
 import "./ourTeam.css"
 
 export default function OurTeam() {
@@ -47,7 +48,7 @@ export default function OurTeam() {
                 </div>
 
                 {/* CARD 2 */}
-               <div className="team_card">
+                <div className="team_card">
                     <div className="team_card_image">
                         <img src={emilImg} alt="" />
                     </div>
@@ -211,22 +212,22 @@ export default function OurTeam() {
                 {/* CARD 9 */}
                 <div className="team_card">
                     <div className="team_card_image">
-                        <img src={greidyImg} alt="" />
+                        <img src={dayanaImg} alt="" />
                     </div>
 
                     <div className="team_card_spec">
-                        <p>Office Operations</p>
+                        <p>Marketing and Brand Development Manager</p>
                     </div>
 
                     <div className="team_card_name">
-                        <h2>Greidy A</h2>
+                        <h2>Dayana Al-Mulhem</h2>
                     </div>
 
                     <div className="team_card_desc">
-                        <a href="mailto:office@avalon990.com">Email to Greidy</a>
+                        <a href="mailto:diana@avalon990.com">Email to Dayana</a>
                         <br />
                         <br />
-                        <a href="tel:+1-609-807-7777">Call Greidy Ext-103</a>
+                        <a href="tel:+1-609-807-7777">Call Dayana Ext-310</a>
                     </div>
                 </div>
             </div>
@@ -297,6 +298,31 @@ export default function OurTeam() {
                         <br />
                         <br />
                         <a href="tel:+1-609-807-7777">Call Valerie</a>
+                    </div>
+                </div>
+            </div>
+
+            {/* OUR TEAM FIFTH ROW */}
+
+            <div className="our_team">
+                <div className="team_card">
+                    <div className="team_card_image">
+                        <img src={greidyImg} alt="" />
+                    </div>
+
+                    <div className="team_card_spec">
+                        <p>Office Operations</p>
+                    </div>
+
+                    <div className="team_card_name">
+                        <h2>Greidy A</h2>
+                    </div>
+
+                    <div className="team_card_desc">
+                        <a href="mailto:office@avalon990.com">Email to Greidy</a>
+                        <br />
+                        <br />
+                        <a href="tel:+1-609-807-7777">Call Greidy Ext-103</a>
                     </div>
                 </div>
             </div>

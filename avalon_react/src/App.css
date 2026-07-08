@@ -1,3 +1,13 @@
+.plusesImageWrapper {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.plusesImageWrapper img {
+    width: 100%;
+    display: block;
+}
+
 .pluses_wrapper {
     color: white;
     background: #18181B;

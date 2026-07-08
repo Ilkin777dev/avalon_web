@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
+import plusesImage from "../assets/plusesImage.jpeg";
+
 import Header from "../components/Header";
 import HeroScreen from "../components/HeroScreen";
 import WhatWeOffer from "../components/WhatWeOffer";
@@ -47,7 +49,10 @@ export default function Home() {
         <WhatWeOffer />
 
         {/* Pluses Section */}
-        <div className="pluses_wrapper">
+        <div className="plusesImageWrapper">
+          <img src={plusesImage} alt="" />
+        </div>
+        {/* <div className="pluses_wrapper">
           <div className="pluses">
             <div className="pluses_card">
               <div className="pluses_title">
@@ -76,7 +81,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <AboutUs />
         <OurTeam />
