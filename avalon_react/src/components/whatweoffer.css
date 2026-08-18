@@ -111,6 +111,23 @@
     justify-content: space-between;
 }
 
+/* Additional section styles */
+
+.additionalSection {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.additionalSectionPreview {
+    margin-bottom: 50px;
+}
+
+.additionalSectionPreview img {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
 @media screen and (max-width: 1000px) {
     .what_we_offer_upper {
         margin-bottom: 40px;

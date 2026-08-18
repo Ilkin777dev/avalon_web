@@ -1,4 +1,6 @@
-import "./whatweoffer.css"
+import "./whatweoffer.css";
+
+import previewImg from "../assets/whatWeOfferPreview.jpeg";
 
 export default function WhatWeOffer() {
     return(
@@ -55,7 +57,31 @@ export default function WhatWeOffer() {
                         </div> */}
                     </div>
                 </div>
-                <div class="what_we_offer_lower">
+
+                <div className="additionalSectionWrapper">
+                    <div className="additionalSection">
+                        <div className="additionalSectionPreview">
+                            <img src={previewImg} alt="" />
+                        </div>
+                        <div className="additionalSectionDesc">
+                            <h3>
+                                What We Do
+                            </h3>
+                            <br />
+                            <br />
+                            <p>
+                                We help investors, property owners, and partners unlock the full potential of real estate. From acquiring undervalued properties to redevelopment, property management, financing, and investment solutions, we provide everything needed to move projects forward with confidence.
+                            </p>
+                            <br />
+                            <br />
+                            <p>
+                                Our integrated approach allows clients to work with one trusted team through every stage of the process, creating smarter investments and stronger long-term results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div class="what_we_offer_lower">
                     <div class="adv_card first_adv_card">
                         <div class="adv_card_title">
                             <div class="adv_card_upper">
@@ -113,7 +139,7 @@ export default function WhatWeOffer() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

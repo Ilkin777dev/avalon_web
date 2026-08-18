@@ -1,7 +1,6 @@
 import alexImg from "../assets/TeamImages/alex.png"
 import emilImg from "../assets/TeamImages/emil.png"
 import konstantinImg from "../assets/TeamImages/konstantin.png"
-import sindyImg from "../assets/TeamImages/sindy.png"
 import nathalieImg from "../assets/TeamImages/nathalie.png"
 import joelImg from "../assets/TeamImages/joel.png"
 import lalaImg from "../assets/TeamImages/lala.png"
@@ -11,6 +10,7 @@ import peterImg from "../assets/TeamImages/peter.png"
 import sabinaImg from "../assets/TeamImages/sabina.png"
 import validaImg from "../assets/TeamImages/valida.png"
 import dayanaImg from "../assets/TeamImages/dayana.png";
+import narminaImg from "../assets/TeamImages/narmina.png";
 import "./ourTeam.css"
 
 export default function OurTeam() {
@@ -98,22 +98,22 @@ export default function OurTeam() {
                 {/* CARD 4 */}
                 <div className="team_card">
                     <div className="team_card_image">
-                        <img src={sindyImg} alt="" />
+                        <img src={narminaImg} alt="" />
                     </div>
 
                     <div className="team_card_spec">
-                        <p>Billing</p>
+                        <p>Senior Real Estate Underwriter</p>
                     </div>
 
                     <div className="team_card_name">
-                        <h2>Sindy Astudillo</h2>
+                        <h2>Narmina Q</h2>
                     </div>
 
                     <div className="team_card_desc">
-                        <a href="mailto:billing@avalon990.com">Email to Sindy</a>
+                        <a href="mailto:nermine@avalon990.com">Email to Narmina</a>
                         <br />
                         <br />
-                        <a href="tel:+1-609-807-7777">Call Sindy Ext-104</a>
+                        <a href="tel:+1-609-807-7777">Call Narmina Ext-304</a>
                     </div>
                 </div>
 
@@ -304,6 +304,7 @@ export default function OurTeam() {
 
             {/* OUR TEAM FIFTH ROW */}
 
+            {/* CARD 13 */}
             <div className="our_team">
                 <div className="team_card">
                     <div className="team_card_image">
